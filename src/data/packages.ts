@@ -1,0 +1,158 @@
+export interface Pkg {
+  slug: string;
+  group: string;
+  npm: string;
+  ctx?: string;
+  role: "def" | "prov" | "cons" | "core" | "ui" | "bundle" | "lib";
+  job: string;
+  kid: string;
+}
+
+export const PACKAGES: Pkg[] = [
+  { slug: "cordis", group: "vendor", npm: "@deepseek-ai/cordis", role: "lib", job: "Context / Fiber / Service / 事件 / 注册表", kid: "积木底板" },
+  { slug: "loader", group: "vendor", npm: "@deepseek-ai/cordis-plugin-loader", ctx: "ctx.loader", role: "lib", job: "从 YAML 挂载插件树", kid: "按说明书拿积木" },
+  { slug: "include", group: "vendor", npm: "@deepseek-ai/cordis-plugin-include", role: "lib", job: "include + applyEntryPatches", kid: "把补丁贴纸贴上去" },
+  { slug: "group", group: "vendor", npm: "@deepseek-ai/cordis-plugin-group", role: "lib", job: "嵌套组与 isolate realm", kid: "教室里自己的饮水机" },
+  { slug: "hmr", group: "vendor", npm: "@deepseek-ai/cordis-plugin-hmr", role: "lib", job: "热替换与精确配置监视", kid: "积木换了不用推倒重来" },
+  { slug: "schemastery", group: "vendor", npm: "@deepseek-ai/schemastery", role: "lib", job: "类型驱动 schema", kid: "积木形状检查器" },
+
+  { slug: "app-boot", group: "boot", npm: "@deepseek-ai/dsh-app-boot", role: "lib", job: "boot()、profile、fail-loud", kid: "开机管家" },
+  { slug: "cmdline", group: "boot", npm: "@deepseek-ai/dsh-cmdline", ctx: "ctx.cmdlineArgs", role: "core", job: "冻结的启动参数", kid: "出门带的字条" },
+  { slug: "base", group: "bundle", npm: "@deepseek-ai/dsh-base", role: "bundle", job: "每个 profile 的第一层补丁", kid: "最大的那袋基础积木" },
+  { slug: "web-app", group: "bundle", npm: "@deepseek-ai/dsh-web-app", role: "bundle", job: "浏览器层 + web-runtime", kid: "带窗户的盒子" },
+  { slug: "headless", group: "bundle", npm: "@deepseek-ai/dsh-headless", role: "bundle", job: "一次性运行器，无 HTTP", kid: "做完作业就回家的盒子" },
+
+  { slug: "scope", group: "core", npm: "@deepseek-ai/dsh-scope", role: "lib", job: "按 agent 划分注册层", kid: "每人一个储物柜" },
+  { slug: "session", group: "core", npm: "@deepseek-ai/dsh-session", ctx: "ctx.sessions", role: "core", job: "仅追加 SessionEvent 日志", kid: "真相日记本" },
+  { slug: "system-prompt", group: "core", npm: "@deepseek-ai/dsh-system-prompt", ctx: "ctx.systemPrompt", role: "core", job: "段落 + 工具 schema 组装", kid: "出门前装订的说明书" },
+  { slug: "tools", group: "core", npm: "@deepseek-ai/dsh-tools", ctx: "ctx.tools", role: "core", job: "作用域工具注册表与把关流水线", kid: "工具柜和许可条" },
+  { slug: "agent", group: "core", npm: "@deepseek-ai/dsh-agent", ctx: "ctx.agents", role: "core", job: "Agent 接口、注册表、agent/*", kid: "机器人对外的名片" },
+  { slug: "agent-loop", group: "core", npm: "@deepseek-ai/dsh-agent-loop", ctx: "ctx.agentLoop", role: "core", job: "默认可替换的循环驱动器", kid: "会写作业的心跳" },
+  { slug: "agent-default-model", group: "core", npm: "@deepseek-ai/dsh-agent-default-model", ctx: "ctx.agentDefaultModel", role: "core", job: "入口共享的默认模型", kid: "没选老师时用的默认老师" },
+
+  { slug: "llm", group: "llm", npm: "@deepseek-ai/dsh-llm", ctx: "ctx.llm", role: "def", job: "消息词汇 + 适配器注册表", kid: "脑子的插座" },
+  { slug: "llm-deepseek", group: "llm", npm: "@deepseek-ai/dsh-llm-deepseek", role: "prov", job: "官方 DeepSeek 适配器", kid: "DeepSeek 老师" },
+  { slug: "llm-pi-ai", group: "llm", npm: "@deepseek-ai/dsh-llm-pi-ai", role: "prov", job: "多提供方，settings 唤醒", kid: "可以换很多老师的插座" },
+  { slug: "llm-retry", group: "llm", npm: "@deepseek-ai/dsh-llm-retry", role: "cons", job: "agent/request-error 重试", kid: "说不清楚就再问一遍" },
+  { slug: "token-meter", group: "llm", npm: "@deepseek-ai/dsh-token-meter", ctx: "ctx.tokenMeter", role: "core", job: "可回放的 token 计量", kid: "称一称日记有多重" },
+
+  { slug: "fs", group: "fs", npm: "@deepseek-ai/dsh-fs", ctx: "ctx.fs", role: "def", job: "文件系统词汇与服务", kid: "纸和笔的插座" },
+  { slug: "fs-local", group: "fs", npm: "@deepseek-ai/dsh-fs-local", role: "prov", job: "本机磁盘", kid: "家里的书桌" },
+  { slug: "fs-sandbox", group: "fs", npm: "@deepseek-ai/dsh-fs-sandbox", role: "prov", job: "按 sandbox 模式围栏写入", kid: "只能在自己本子上写" },
+  { slug: "tool-fs", group: "fs", npm: "@deepseek-ai/dsh-tool-fs", role: "cons", job: "read / write / edit", kid: "给模型的读写工具" },
+  { slug: "tool-fs-search", group: "fs", npm: "@deepseek-ai/dsh-tool-fs-search", role: "cons", job: "glob / grep（ripgrep）", kid: "在房间里找东西" },
+
+  { slug: "subprocess", group: "subprocess", npm: "@deepseek-ai/dsh-subprocess", ctx: "ctx.subprocess", role: "def", job: "进程组 + PTY 原语", kid: "请人跑腿的插座" },
+  { slug: "subprocess-local", group: "subprocess", npm: "@deepseek-ai/dsh-subprocess-local", role: "prov", job: "本机进程树 / node-pty", kid: "家里的跑腿小弟" },
+
+  { slug: "sandbox", group: "sandbox", npm: "@deepseek-ai/dsh-sandbox", ctx: "ctx.sandbox", role: "def", job: "confine(argv)", kid: "婴儿门插座" },
+  { slug: "sandbox-local", group: "sandbox", npm: "@deepseek-ai/dsh-sandbox-local", role: "prov", job: "bwrap / Landlock / Seatbelt", kid: "真正的围栏" },
+  { slug: "sandbox-policy", group: "sandbox", npm: "@deepseek-ai/dsh-sandbox-policy", ctx: "ctx.sandboxPolicy", role: "core", job: "模式 + workspace 根", kid: "围栏调到哪一档" },
+
+  { slug: "shell", group: "shell", npm: "@deepseek-ai/dsh-shell", ctx: "ctx.shell", role: "def", job: "bash 执行器 seam", kid: "下令的嘴巴" },
+  { slug: "bash-sandbox", group: "shell", npm: "@deepseek-ai/dsh-bash-sandbox", role: "prov", job: "POSIX 默认，先围再跑", kid: "隔着围栏喊命令" },
+  { slug: "pwsh-sandbox", group: "shell", npm: "@deepseek-ai/dsh-pwsh-sandbox", role: "prov", job: "win32 孪生栈", kid: "Windows 家里的嘴巴" },
+  { slug: "tool-bash", group: "shell", npm: "@deepseek-ai/dsh-tool-bash", role: "cons", job: "面向模型的 bash", kid: "模型会敲的那条命令" },
+
+  { slug: "terminal", group: "terminal", npm: "@deepseek-ai/dsh-terminal", ctx: "ctx.terminals", role: "def", job: "owner 隔离的持久 PTY", kid: "一直开着的小黑板" },
+  { slug: "terminal-bash", group: "terminal", npm: "@deepseek-ai/dsh-terminal-bash", role: "prov", job: "bash PTY 后端", kid: "黑板上的壳" },
+  { slug: "tool-terminal", group: "terminal", npm: "@deepseek-ai/dsh-tool-terminal", role: "cons", job: "六件 PTY 工具", kid: "给模型的黑板粉笔" },
+
+  { slug: "lsp", group: "lsp", npm: "@deepseek-ai/dsh-lsp", ctx: "ctx.lsp", role: "def", job: "def/refs/impl/hover", kid: "读代码地图的眼镜" },
+  { slug: "lsp-stdio", group: "lsp", npm: "@deepseek-ai/dsh-lsp-stdio", role: "prov", job: "stdio 语言服务器", kid: "戴上眼镜" },
+  { slug: "tool-lsp", group: "lsp", npm: "@deepseek-ai/dsh-tool-lsp", role: "cons", job: "模型 lsp 工具", kid: "问眼镜：这是谁写的？" },
+
+  { slug: "session-persistence", group: "session", npm: "@deepseek-ai/dsh-session-persistence", ctx: "ctx.sessionPersistence", role: "def", job: "耐久写入 seam", kid: "把日记复印进抽屉" },
+  { slug: "session-persistence-jsonl", group: "session", npm: "@deepseek-ai/dsh-session-persistence-jsonl", role: "prov", job: "默认 JSONL 后端", kid: "一行一行抄在纸上" },
+  { slug: "session-title", group: "session", npm: "@deepseek-ai/dsh-session-title", ctx: "ctx.sessionTitle", role: "def", job: "日志生成标题", kid: "给日记本起名字" },
+  { slug: "session-projection", group: "session", npm: "@deepseek-ai/dsh-session-projection", ctx: "ctx.sessionProjections", role: "core", job: "从日志折叠视图", kid: "把日记摘要成卡片" },
+  { slug: "session-query", group: "session-query", npm: "@deepseek-ai/dsh-session-query", ctx: "ctx.sessionQuery", role: "def", job: "读取、血缘、过滤", kid: "翻旧日记" },
+  { slug: "session-query-sqlite", group: "session-query", npm: "@deepseek-ai/dsh-session-query-sqlite", role: "prov", job: "FTS5 后端", kid: "日记检索柜" },
+
+  { slug: "storage", group: "storage", npm: "@deepseek-ai/dsh-storage", ctx: "ctx.storage", role: "def", job: "非会话 KV 中枢", kid: "不是日记的小盒子" },
+  { slug: "storage-domain", group: "storage", npm: "@deepseek-ai/dsh-storage-domain", ctx: "ctx.storageDomain", role: "core", job: "带 schema 的领域表", kid: "贴了标签的抽屉" },
+  { slug: "credentials", group: "credentials", npm: "@deepseek-ai/dsh-credentials", ctx: "ctx.credentials", role: "def", job: "配置里只放钥匙名", kid: "保险箱上的标签" },
+  { slug: "credentials-local", group: "credentials", npm: "@deepseek-ai/dsh-credentials-local", role: "prov", job: "env 优于 .credentials.yaml", kid: "真正的钥匙" },
+  { slug: "settings", group: "settings", npm: "@deepseek-ai/dsh-settings", ctx: "ctx.settings", role: "def", job: "分层用户设置", kid: "墙上的开关插座" },
+  { slug: "settings-file", group: "settings", npm: "@deepseek-ai/dsh-settings-file", role: "prov", job: "settings.yaml", kid: "开关说明书" },
+
+  { slug: "skill", group: "skill", npm: "@deepseek-ai/dsh-skill", ctx: "ctx.skills", role: "def", job: "技能卡片注册表", kid: "菜谱架" },
+  { slug: "skill-filesystem", group: "skill", npm: "@deepseek-ai/dsh-skill-filesystem", role: "prov", job: "扫描磁盘上的 SKILL.md", kid: "从抽屉拿出菜谱" },
+  { slug: "tool-skill", group: "skill", npm: "@deepseek-ai/dsh-tool-skill", role: "cons", job: "目录 + 加载正文", kid: "先看目录再打开菜谱" },
+  { slug: "plan-mode", group: "plan", npm: "@deepseek-ai/dsh-plan-mode", ctx: "ctx.planMode", role: "core", job: "先设计后动手，人审退出", kid: "先画图纸" },
+  { slug: "goal", group: "goal", npm: "@deepseek-ai/dsh-goal", ctx: "ctx.goals", role: "core", job: "同会话目标事件源", kid: "冰箱磁铁目标" },
+  { slug: "jobs", group: "jobs", npm: "@deepseek-ai/dsh-jobs", ctx: "ctx.jobs", role: "def", job: "后台任务注册表", kid: "洗衣机上的便利贴" },
+  { slug: "jobs-local", group: "jobs", npm: "@deepseek-ai/dsh-jobs-local", role: "prov", job: "进程内实现", kid: "家里的洗衣机" },
+  { slug: "tool-jobs", group: "jobs", npm: "@deepseek-ai/dsh-tool-jobs", role: "cons", job: "job_list / wait / kill", kid: "去看洗衣机转没转" },
+
+  { slug: "subagent", group: "subagent", npm: "@deepseek-ai/dsh-subagent", ctx: "ctx.subagents", role: "def", job: "命名提供方注册表", kid: "请朋友帮忙的插座" },
+  { slug: "subagent-spawn", group: "subagent", npm: "@deepseek-ai/dsh-subagent-spawn-in-process", role: "prov", job: "全新子 agent", kid: "再请一个新朋友" },
+  { slug: "subagent-fork", group: "subagent", npm: "@deepseek-ai/dsh-subagent-fork-in-process", role: "prov", job: "带着父日志前缀分叉", kid: "把日记复印一份给朋友" },
+  { slug: "tool-subagent", group: "subagent", npm: "@deepseek-ai/dsh-tool-subagent", role: "cons", job: "委托工具", kid: "模型喊朋友来" },
+  { slug: "workflow", group: "workflow", npm: "@deepseek-ai/dsh-workflow", ctx: "ctx.workflowEngine", role: "def", job: "编排引擎 seam", kid: "编舞说明书" },
+  { slug: "tool-ralph", group: "workflow", npm: "@deepseek-ai/dsh-tool-ralph", role: "cons", job: "新鲜 agent 的 Ralph 循环", kid: "让新人一遍遍干活直到做好" },
+  { slug: "web-seam", group: "web", npm: "@deepseek-ai/dsh-web", ctx: "ctx.web", role: "def", job: "search/fetch 注册表", kid: "上网的插座" },
+  { slug: "tool-web", group: "web", npm: "@deepseek-ai/dsh-tool-web", role: "cons", job: "web_search / web_fetch", kid: "去网上找" },
+  { slug: "mcp-client", group: "mcp", npm: "@deepseek-ai/dsh-mcp-client", role: "cons", job: "MCP 服务器 → ctx.tools", kid: "外面商店的工具挂到柜子上" },
+  { slug: "compaction", group: "compaction", npm: "@deepseek-ai/dsh-compaction", ctx: "ctx.compaction", role: "def", job: "摘要 seam", kid: "日记太厚就写『前情提要』" },
+  { slug: "compaction-basic", group: "compaction", npm: "@deepseek-ai/dsh-compaction-basic", role: "prov", job: "token 压力 + LLM 摘要", kid: "真正去写前情提要的人" },
+
+  { slug: "approval", group: "interaction", npm: "@deepseek-ai/dsh-user-approval", ctx: "ctx.approval", role: "def", job: "一次性许可 waterfall", kid: "举手问大人行不行" },
+  { slug: "permission-presets", group: "interaction", npm: "@deepseek-ai/dsh-permission-presets", ctx: "ctx.permissionPresets", role: "core", job: "read-only / workspace-write / danger", kid: "三档家规" },
+  { slug: "commands", group: "interaction", npm: "@deepseek-ai/dsh-commands", ctx: "ctx.commands", role: "core", job: "人类 slash 命令", kid: "不用模型也能下的口令" },
+  { slug: "user-questions", group: "interaction", npm: "@deepseek-ai/dsh-user-questions", ctx: "ctx.userQuestions", role: "def", job: "问人 seam", kid: "作业做到一半来问你" },
+
+  { slug: "webserver", group: "host", npm: "@deepseek-ai/dsh-host-webserver", ctx: "ctx.webServer", role: "core", job: "哑巴 HTTP 路由载体", kid: "门口的信箱" },
+  { slug: "apiproxy", group: "host", npm: "@deepseek-ai/dsh-host-apiproxy", ctx: "ctx.apiProxy", role: "core", job: "Host API 网关", kid: "接待员" },
+  { slug: "frontend-static", group: "host", npm: "@deepseek-ai/dsh-host-frontend-static", role: "prov", job: "SPA dist 回退", kid: "把窗户玻璃装上" },
+  { slug: "client-web", group: "client", npm: "@deepseek-ai/dsh-client-web", role: "ui", job: "浏览器 Cordis 启动核", kid: "窗户里再拼一座小城" },
+  { slug: "client-modules", group: "client", npm: "@deepseek-ai/dsh-client-modules", ctx: "ctx.clientModules", role: "ui", job: "__DSH_BOOT__ 图", kid: "窗户的目录" },
+  { slug: "ui-conversation", group: "client", npm: "@deepseek-ai/dsh-client-ui-conversation", role: "ui", job: "聊天骨架与输入框", kid: "对话窗口" },
+  { slug: "ui-slots", group: "client", npm: "@deepseek-ai/dsh-client-ui-slots", role: "lib", job: "SlotMap 组合 API", kid: "毡板上的洞" },
+
+  { slug: "typert-registry", group: "typert", npm: "@deepseek-ai/dsh-typert-registry", ctx: "ctx.typert", role: "core", job: "运行时类型注册表", kid: "给积木画说明书的柜子" },
+  { slug: "api-gateway", group: "api", npm: "@deepseek-ai/dsh-api-gateway", ctx: "ctx.typertGateway", role: "core", job: "Typert RPC", kid: "屋里屋外的传声筒" },
+  { slug: "sdk-client", group: "sdk", npm: "@deepseek-ai/dsh-sdk-client", role: "lib", job: "进程外 JSON-RPC 客户端", kid: "遥控器" },
+  { slug: "acp", group: "acp", npm: "@deepseek-ai/dsh-acp", role: "core", job: "ACP stdio 服务器", kid: "自动化专用插头" },
+  { slug: "e2b", group: "e2b", npm: "@deepseek-ai/dsh-e2b", ctx: "ctx.e2b", role: "core", job: "远程沙箱生命周期", kid: "把游戏室搬到云上" },
+  { slug: "agent-team", group: "experimental", npm: "@deepseek-ai/dsh-experimental-agent-team", ctx: "ctx.agentTeams", role: "core", job: "花名册、邮箱、任务 DAG", kid: "实验小队俱乐部" },
+  { slug: "invariants", group: "runtime-diagnostics", npm: "@deepseek-ai/dsh-invariants", ctx: "ctx.invariants", role: "core", job: "包自有运行时不变量", kid: "体检表" },
+  { slug: "agent-presets", group: "preset", npm: "@deepseek-ai/dsh-agent-presets", ctx: "ctx.agentPresets", role: "core", job: "按会话挂载 agent.cordis.yml", kid: "不同套装的机器人" },
+  { slug: "persona", group: "preset", npm: "@deepseek-ai/dsh-persona", role: "cons", job: "可组合的人格段落", kid: "给机器人换衣服" },
+  { slug: "tool-cordis", group: "extensions", npm: "@deepseek-ai/dsh-tool-cordis", role: "cons", job: "检查 / 挂载 / 卸载活插件", kid: "机器人给自己加积木" },
+  { slug: "code-runtime", group: "code-runtime", npm: "@deepseek-ai/dsh-code-runtime", ctx: "ctx.codeRuntime", role: "def", job: "跑一段模型写的程序", kid: "小实验室" },
+  { slug: "todo", group: "todo", npm: "@deepseek-ai/dsh-tool-todo", role: "cons", job: "todo_write 整表快照", kid: "待办清单" },
+  { slug: "attachment", group: "attachment", npm: "@deepseek-ai/dsh-attachment", ctx: "ctx.attachments", role: "def", job: "耐久二进制身份", kid: "日记外面贴的照片" },
+  { slug: "spill", group: "spill", npm: "@deepseek-ai/dsh-spill", ctx: "ctx.spillStore", role: "def", job: "超长工具结果外溢", kid: "太长的话写到另一张纸" },
+  { slug: "workspace", group: "workspace", npm: "@deepseek-ai/dsh-workspace", ctx: "ctx.workspaceRegistry", role: "core", job: "工作区实体", kid: "这间房间叫什么" },
+
+  { slug: "context-files", group: "context", npm: "@deepseek-ai/dsh-context", role: "cons", job: "AGENTS.md、时间、tmux、@file/@session", kid: "出门前看一眼钟和说明书" },
+  { slug: "schedule", group: "schedule", npm: "@deepseek-ai/dsh-schedule", ctx: "ctx.schedule", role: "core", job: "after / at / 固定频率提醒", kid: "闹钟" },
+  { slug: "repeat-tool-reminder", group: "guard", npm: "@deepseek-ai/dsh-repeat-tool-reminder", role: "cons", job: "重复工具调用的劝告", kid: "别转圈圈" },
+  { slug: "timeout-policy", group: "guard", npm: "@deepseek-ai/dsh-timeout-policy", role: "cons", job: "给每次工具调用戴上手表", kid: "超时就停" },
+  { slug: "hooks-cc", group: "hooks", npm: "@deepseek-ai/dsh-hooks-claude-code", role: "cons", job: "Claude Code 钩子桥", kid: "别人家的说明书也能用" },
+  { slug: "hooks-codex", group: "hooks", npm: "@deepseek-ai/dsh-hooks-codex", role: "cons", job: "Codex 钩子桥", kid: "另一本别人家的说明书" },
+  { slug: "identity", group: "identity", npm: "@deepseek-ai/dsh-anonymous-user-id", role: "core", job: "共享匿名用户 id，用于遥测与反馈", kid: "匿名名牌" },
+  { slug: "feedback", group: "feedback", npm: "@deepseek-ai/dsh-feedback", role: "cons", job: "会话反馈命令 + 逐条评分", kid: "竖拇指" },
+  { slug: "brand", group: "util", npm: "@deepseek-ai/dsh-brand", role: "lib", job: "产品名与路径约定", kid: "尺子上的名字" },
+  { slug: "home-paths", group: "util", npm: "@deepseek-ai/dsh-home-paths", role: "lib", job: "$DSH_HOME 解析", kid: "家在哪" },
+  { slug: "testkit", group: "test-support", npm: "@deepseek-ai/dsh-testkit", role: "lib", job: "测试夹具与 loader smoke", kid: "练习用积木" },
+  { slug: "llm-replay", group: "llm", npm: "@deepseek-ai/dsh-llm-replay", role: "prov", job: "用录制日志回放，测试不需要密钥", kid: "假装老师在说话" },
+  { slug: "fs-e2b", group: "e2b", npm: "@deepseek-ai/dsh-fs-e2b", role: "prov", job: "远程 Linux 沙箱磁盘", kid: "云上小屋里的书桌" },
+  { slug: "subprocess-e2b", group: "e2b", npm: "@deepseek-ai/dsh-subprocess-e2b", role: "prov", job: "远程沙箱进程", kid: "云上小屋里的跑腿" },
+  { slug: "session-sqlite", group: "session", npm: "@deepseek-ai/dsh-session-persistence-sqlite", role: "prov", job: "SQLite 会话后端", kid: "把日记放进柜子" },
+];
+
+export const ROLE_LABEL: Record<Pkg["role"], string> = {
+  def: "定义",
+  prov: "提供方",
+  cons: "消费方",
+  core: "主干",
+  ui: "界面",
+  bundle: "组合包",
+  lib: "库",
+};
+
+export function packagesInGroup(group: string) {
+  return PACKAGES.filter((p) => p.group === group);
+}
