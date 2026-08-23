@@ -125,6 +125,7 @@ export function pageSeo(path: string, override?: Partial<PageSeo>): PageSeo {
 export function seoHead(path: string, override?: Partial<PageSeo>) {
   const page = pageSeo(path, override);
   const url = canonical(page.path);
+  const image = `${SITE_ORIGIN}/og.jpg`;
   return {
     meta: [
       { title: page.title },
@@ -133,6 +134,18 @@ export function seoHead(path: string, override?: Partial<PageSeo>) {
       { name: "author", content: SITE_AUTHOR },
       { name: "application-name", content: SITE_NAME },
       { property: "og:locale", content: "zh_CN" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: page.title },
+      { property: "og:description", content: page.description },
+      { property: "og:url", content: url },
+      { property: "og:image", content: image },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: page.title },
+      { name: "twitter:description", content: page.description },
+      { name: "twitter:image", content: image },
     ],
     links: [{ rel: "canonical", href: url }],
   };

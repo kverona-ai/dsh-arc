@@ -21,6 +21,7 @@ import { Route as ModulesRouteImport } from './routes/modules'
 import { Route as PrinciplesRouteImport } from './routes/principles'
 import { Route as SeamsRouteImport } from './routes/seams'
 import { Route as StoryRouteImport } from './routes/story'
+import { Route as ModulesIndexRouteImport } from './routes/modules.index'
 import { Route as ModulesSlugRouteImport } from './routes/modules.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -83,6 +84,11 @@ const StoryRoute = StoryRouteImport.update({
   path: '/story',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ModulesIndexRoute = ModulesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ModulesRoute,
+} as any)
 const ModulesSlugRoute = ModulesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/modules/': typeof ModulesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -113,11 +120,11 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/loop': typeof LoopRoute
   '/map': typeof MapRoute
-  '/modules': typeof ModulesRouteWithChildren
   '/principles': typeof PrinciplesRoute
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/modules': typeof ModulesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +141,7 @@ export interface FileRoutesById {
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/modules/': typeof ModulesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +159,7 @@ export interface FileRouteTypes {
     | '/seams'
     | '/story'
     | '/modules/$slug'
+    | '/modules/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -161,11 +170,11 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/loop'
     | '/map'
-    | '/modules'
     | '/principles'
     | '/seams'
     | '/story'
     | '/modules/$slug'
+    | '/modules'
   id:
     | '__root__'
     | '/'
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
     | '/seams'
     | '/story'
     | '/modules/$slug'
+    | '/modules/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -284,6 +294,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/modules/': {
+      id: '/modules/'
+      path: '/'
+      fullPath: '/modules/'
+      preLoaderRoute: typeof ModulesIndexRouteImport
+      parentRoute: typeof ModulesRoute
+    }
     '/modules/$slug': {
       id: '/modules/$slug'
       path: '/$slug'
@@ -296,10 +313,12 @@ declare module '@tanstack/react-router' {
 
 interface ModulesRouteChildren {
   ModulesSlugRoute: typeof ModulesSlugRoute
+  ModulesIndexRoute: typeof ModulesIndexRoute
 }
 
 const ModulesRouteChildren: ModulesRouteChildren = {
   ModulesSlugRoute: ModulesSlugRoute,
+  ModulesIndexRoute: ModulesIndexRoute,
 }
 
 const ModulesRouteWithChildren =
