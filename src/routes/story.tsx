@@ -3,8 +3,12 @@ import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { STORY_CHAPTERS } from "@/data/story";
 import { Button } from "@/components/ui/button";
+import { seoHead } from "@/lib/seo";
 
-export const Route = createFileRoute("/story")({ component: StoryPage });
+export const Route = createFileRoute("/story")({
+  component: StoryPage,
+  head: () => seoHead("/story"),
+});
 
 function StoryPage() {
   return (

@@ -6,7 +6,12 @@ import { GROUPS, LAYERS } from "@/data/groups";
 import { PACKAGES, ROLE_LABEL } from "@/data/packages";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/modules")({ component: ModulesPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/modules")({
+  component: ModulesPage,
+  head: () => seoHead("/modules"),
+});
 
 function ModulesPage() {
   const [q, setQ] = useState("");

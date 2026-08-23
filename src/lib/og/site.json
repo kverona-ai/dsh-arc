@@ -1,4 +1,5 @@
 {
   "title": "DSH 积木书",
-  "card": "custom"
+  "card": "custom",
+  "description": "DeepSeek Harness（dsh）架构图解：Everything is a plugin，Every run is traceable。Cordis 底板、会话日志、能力 seam，小孩版与源码对照。"
 }

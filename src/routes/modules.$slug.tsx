@@ -4,9 +4,18 @@ import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { groupBySlug } from "@/data/groups";
 import { packagesInGroup, ROLE_LABEL } from "@/data/packages";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/modules/$slug")({
   component: GroupPage,
+  head: ({ params }) => {
+    const group = groupBySlug(params.slug);
+    if (!group) return seoHead("/modules");
+    return seoHead(`/modules/${group.slug}`, {
+      title: `${group.name} · DeepSeek Harness 模块 | DSH 积木书`,
+      description: `${group.job}。${group.kid}${group.ctx ? `。${group.ctx}` : ""}。`,
+    });
+  },
   notFoundComponent: () => (
     <Page title="没有这个抽屉" lead="回到目录看看别的积木。">
       <Link to="/modules" className="text-accent hover:underline">

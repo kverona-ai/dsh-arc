@@ -3,7 +3,12 @@ import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { DISPATCH_MODES, EVENT_DOMAINS } from "@/data/events";
 
-export const Route = createFileRoute("/events")({ component: EventsPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/events")({
+  component: EventsPage,
+  head: () => seoHead("/events"),
+});
 
 function EventsPage() {
   return (

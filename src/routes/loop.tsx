@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button";
 import { INBOX_MODES, LOOP_BEATS } from "@/data/loop";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/loop")({ component: LoopPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/loop")({
+  component: LoopPage,
+  head: () => seoHead("/loop"),
+});
 
 const KIND_LABEL = {
   durable: "日记",

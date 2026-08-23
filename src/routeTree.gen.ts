@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BootRouteImport } from './routes/boot'
 import { Route as CordisRouteImport } from './routes/cordis'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as LoopRouteImport } from './routes/loop'
 import { Route as MapRouteImport } from './routes/map'
@@ -40,6 +41,11 @@ const CordisRoute = CordisRouteImport.update({
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlossaryRoute = GlossaryRouteImport.update({
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/boot': typeof BootRoute
   '/cordis': typeof CordisRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/glossary': typeof GlossaryRoute
   '/loop': typeof LoopRoute
   '/map': typeof MapRoute
@@ -102,6 +109,7 @@ export interface FileRoutesByTo {
   '/boot': typeof BootRoute
   '/cordis': typeof CordisRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/glossary': typeof GlossaryRoute
   '/loop': typeof LoopRoute
   '/map': typeof MapRoute
@@ -117,6 +125,7 @@ export interface FileRoutesById {
   '/boot': typeof BootRoute
   '/cordis': typeof CordisRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/glossary': typeof GlossaryRoute
   '/loop': typeof LoopRoute
   '/map': typeof MapRoute
@@ -133,6 +142,7 @@ export interface FileRouteTypes {
     | '/boot'
     | '/cordis'
     | '/events'
+    | '/faq'
     | '/glossary'
     | '/loop'
     | '/map'
@@ -147,6 +157,7 @@ export interface FileRouteTypes {
     | '/boot'
     | '/cordis'
     | '/events'
+    | '/faq'
     | '/glossary'
     | '/loop'
     | '/map'
@@ -161,6 +172,7 @@ export interface FileRouteTypes {
     | '/boot'
     | '/cordis'
     | '/events'
+    | '/faq'
     | '/glossary'
     | '/loop'
     | '/map'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   BootRoute: typeof BootRoute
   CordisRoute: typeof CordisRoute
   EventsRoute: typeof EventsRoute
+  FaqRoute: typeof FaqRoute
   GlossaryRoute: typeof GlossaryRoute
   LoopRoute: typeof LoopRoute
   MapRoute: typeof MapRoute
@@ -213,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/glossary': {
@@ -290,6 +310,7 @@ const rootRouteChildren: RootRouteChildren = {
   BootRoute: BootRoute,
   CordisRoute: CordisRoute,
   EventsRoute: EventsRoute,
+  FaqRoute: FaqRoute,
   GlossaryRoute: GlossaryRoute,
   LoopRoute: LoopRoute,
   MapRoute: MapRoute,

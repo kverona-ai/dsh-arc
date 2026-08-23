@@ -5,7 +5,12 @@ import { Page } from "@/components/page";
 import { SEAMS, SEAM_RULES } from "@/data/seams";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/seams")({ component: SeamsPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/seams")({
+  component: SeamsPage,
+  head: () => seoHead("/seams"),
+});
 
 function SeamsPage() {
   const [slug, setSlug] = useState(SEAMS[0]!.slug);

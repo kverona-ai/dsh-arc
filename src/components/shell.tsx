@@ -5,6 +5,8 @@ import { NAV, navIsActive } from "@/data/nav";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { SearchPalette, SearchTrigger } from "@/components/search-palette";
+import { SeoBlock } from "@/components/seo-block";
+import { SiteFooter } from "@/components/site-footer";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -96,7 +98,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           </p>
         </aside>
         <div id="main" className="min-w-0 flex-1">
+          <SeoBlock />
           {children}
+          <SiteFooter />
         </div>
       </div>
       <SearchPalette open={search} onClose={() => setSearch(false)} />

@@ -4,10 +4,15 @@ import { Brick } from "@/components/brick";
 import { Pager } from "@/components/pager";
 import { Button } from "@/components/ui/button";
 import { KidNote } from "@/components/kid-note";
+import { FaqList } from "@/components/faq-list";
 import { LAYERS } from "@/data/groups";
 import { NAV } from "@/data/nav";
+import { seoHead } from "@/lib/seo";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => seoHead("/"),
+});
 
 function Home() {
   return (
@@ -112,6 +117,15 @@ function Home() {
             </li>
           ))}
         </ol>
+      </section>
+      <section className="mt-16">
+        <div className="mb-5 flex items-end justify-between gap-4">
+          <h2 className="text-2xl">常见问题</h2>
+          <Link to="/faq" className="text-sm text-accent hover:underline">
+            全部问答
+          </Link>
+        </div>
+        <FaqList limit={4} />
       </section>
       <Pager pathname="/" />
     </main>

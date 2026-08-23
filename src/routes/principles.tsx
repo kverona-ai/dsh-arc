@@ -2,8 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { EXTEND_MAP, PILLARS, RUNTIME_MODES } from "@/data/principles";
+import { seoHead } from "@/lib/seo";
 
-export const Route = createFileRoute("/principles")({ component: PrinciplesPage });
+export const Route = createFileRoute("/principles")({
+  component: PrinciplesPage,
+  head: () => seoHead("/principles"),
+});
 
 function PrinciplesPage() {
   return (

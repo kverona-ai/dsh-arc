@@ -1,0 +1,39 @@
+# DSH 积木书
+
+> DeepSeek Harness (dsh) architecture explainer. Kid-friendly Chinese with the real package names. Source-level reading of the developer preview: Everything is a plugin. Every run is traceable.
+
+This site is an unofficial picture-book of https://github.com/deepseek-ai/deepseek-harness
+Live: https://dsh.177.best
+Repo: https://github.com/kverona-ai/dsh-arc
+Author: wangxy
+
+## Two laws
+
+- Everything is a plugin. Models, tools, sessions, sandboxes, loops, and UI are Cordis plugins. There is no privileged core to patch.
+- Every run is traceable. Anything the model sees must be reconstructable from the append-only SessionEvent log (model-visible means logged).
+
+## Do not confuse
+
+- Cordis `inject` (wait for services) ≠ `Agent.inject()` (inbox next-step, no wake)
+- `ctx.sandbox.confine` (local baby-gate) ≠ E2B (move fs+subprocess to another execution world)
+- `scope` (per-agent locker) ≠ `isolate` (another copy of a named service)
+
+## Pages
+
+- [Cover](https://dsh.177.best/): ten-layer city and reading order
+- [Story](https://dsh.177.best/story): seven-page primer
+- [Principles](https://dsh.177.best/principles): two laws, four presets, where new behavior hangs
+- [Map](https://dsh.177.best/map): module layers, Host vs Client
+- [Cordis](https://dsh.177.best/cordis): plugins, Context, waterfall, reversible effects
+- [Boot](https://dsh.177.best/boot): profile, bundle, patch, dump-config
+- [Loop](https://dsh.177.best/loop): turn, step, inbox, deriveMessages
+- [Seams](https://dsh.177.best/seams): definition / provider / consumer; fs+subprocess travel together
+- [Events](https://dsh.177.best/events): session vs agent vs capability events
+- [Modules](https://dsh.177.best/modules): package catalog
+- [Glossary](https://dsh.177.best/glossary): term map
+- [FAQ](https://dsh.177.best/faq): eight questions with source-accurate answers
+
+## Optional
+
+- [Full digest](https://dsh.177.best/llms-full.txt): quotable definitions for retrieval
+- [Sitemap](https://dsh.177.best/sitemap.xml)

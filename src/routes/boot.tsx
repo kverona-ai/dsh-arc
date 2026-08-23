@@ -3,7 +3,12 @@ import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { BOOT_LAYERS, BOOT_STEPS, PRESETS } from "@/data/boot";
 
-export const Route = createFileRoute("/boot")({ component: BootPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/boot")({
+  component: BootPage,
+  head: () => seoHead("/boot"),
+});
 
 function BootPage() {
   return (

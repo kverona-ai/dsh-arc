@@ -5,7 +5,12 @@ import { Page } from "@/components/page";
 import { GLOSSARY } from "@/data/glossary";
 import type { NavPath } from "@/data/nav";
 
-export const Route = createFileRoute("/glossary")({ component: GlossaryPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/glossary")({
+  component: GlossaryPage,
+  head: () => seoHead("/glossary"),
+});
 
 function GlossaryPage() {
   const [q, setQ] = useState("");

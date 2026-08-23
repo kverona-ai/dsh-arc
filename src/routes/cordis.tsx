@@ -3,7 +3,12 @@ import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
 import { DISPATCH_MODES } from "@/data/events";
 
-export const Route = createFileRoute("/cordis")({ component: CordisPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/cordis")({
+  component: CordisPage,
+  head: () => seoHead("/cordis"),
+});
 
 const IDEAS = [
   {

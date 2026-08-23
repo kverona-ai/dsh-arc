@@ -5,7 +5,12 @@ import { Page } from "@/components/page";
 import { GROUPS, LAYERS, type Layer } from "@/data/groups";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/map")({ component: MapPage });
+import { seoHead } from "@/lib/seo";
+
+export const Route = createFileRoute("/map")({
+  component: MapPage,
+  head: () => seoHead("/map"),
+});
 
 function MapPage() {
   const [active, setActive] = useState<Layer>("core");
