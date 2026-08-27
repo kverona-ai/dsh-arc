@@ -84,6 +84,8 @@ export const LAYERS: { id: Layer; title: string; kid: string; job: string }[] = 
   },
 ];
 
+// One drawer per line, same reason as PACKAGES in ./packages.ts.
+// prettier-ignore
 export const GROUPS: Group[] = [
   { slug: "vendor", name: "vendor / Cordis", path: "vendor/", layer: "vendor", kid: "积木底板", job: "Cordis、Loader、Include、HMR、Schemastery", color: "accent" },
   { slug: "boot", name: "boot", path: "packages/boot", layer: "boot", ctx: "boot helpers", kid: "开机说明书", job: "app-boot、cmdline、profile 组装", color: "fg" },

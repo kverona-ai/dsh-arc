@@ -48,9 +48,8 @@ test("Accept-Language is used only when no country header exists", () => {
     "zh-CN",
   );
   assert.equal(
-    suggestionFromHeaders(
-      new Headers({ "accept-language": "en-US,en;q=0.9,zh-CN;q=0.1" }),
-    ).suggestedLocale,
+    suggestionFromHeaders(new Headers({ "accept-language": "en-US,en;q=0.9,zh-CN;q=0.1" }))
+      .suggestedLocale,
     "en",
   );
   assert.equal(

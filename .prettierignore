@@ -1,0 +1,20 @@
+# Build output
+dist/
+.output/
+.nitro/
+.vercel/
+.tanstack/
+.vite/
+
+# Generated — rewritten by the router plugin and npm
+src/routeTree.gen.ts
+package-lock.json
+
+# Byte-exact by contract: Search Console matches the file, not its formatting
+public/google412931e16b821687.html
+
+# Platform scaffold assets, copied in verbatim
+public/__grok/
+.grok/
+artifacts/
+screenshots/

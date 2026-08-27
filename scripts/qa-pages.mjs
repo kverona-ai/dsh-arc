@@ -96,9 +96,6 @@ if (!mpage.url().includes("principles")) errors.push(`mobile nav failed url=${mp
 await mpage.screenshot({ path: `${OUT}/principles-mobile.png` });
 
 await browser.close();
-writeFileSync(
-  `${OUT}/qa.json`,
-  JSON.stringify({ ok: errors.length === 0, errors }, null, 2),
-);
+writeFileSync(`${OUT}/qa.json`, JSON.stringify({ ok: errors.length === 0, errors }, null, 2));
 console.log(JSON.stringify({ ok: errors.length === 0, errors }, null, 2));
 if (errors.length) process.exit(1);

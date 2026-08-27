@@ -1,4 +1,10 @@
-import { ExternalLink, ImagePlus, MessagesSquare, ShieldCheck, SlidersHorizontal } from "lucide-react";
+import {
+  ExternalLink,
+  ImagePlus,
+  MessagesSquare,
+  ShieldCheck,
+  SlidersHorizontal,
+} from "lucide-react";
 import { HARNESS_RELEASE, RELEASE_HIGHLIGHTS } from "@/data/release";
 
 const ICONS = {

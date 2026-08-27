@@ -38,12 +38,36 @@ export const BOOT_LAYERS = [
 ];
 
 export const BOOT_STEPS = [
-  { title: "dsh web", kid: "你喊一声管家。", tech: "apps/cli/src/bin.ts 解析参数，loadLayeredEnv。" },
-  { title: "选 profile", kid: "拿出叫 web 的盒子。", tech: "loadProfile 读 $DSH_HOME/profiles/<name>/package.json 的 dsh.profile.bundles。" },
-  { title: "叠补丁", kid: "按顺序把袋子倒进书包。", tech: "composeEntries：空列表上 applyEntryPatches。" },
-  { title: "boot()", kid: "把底板放好，积木开始卡住。", tech: "创建根 Context，挂 Loader + include + group，等待全部 fiber ACTIVE。" },
-  { title: "断言", kid: "数一数，少一块就大声说。", tech: "assertEntriesLoaded / assertEntriesActivated。失败 fail-loud，先 restore TTY 再 exit(1)。" },
-  { title: "开窗", kid: "web 模式打开信箱和玻璃。", tech: "web-runtime 打印 URL，默认打开浏览器。headless 则创建一个 Agent、提交任务、打印最后一段助手文本。" },
+  {
+    title: "dsh web",
+    kid: "你喊一声管家。",
+    tech: "apps/cli/src/bin.ts 解析参数，loadLayeredEnv。",
+  },
+  {
+    title: "选 profile",
+    kid: "拿出叫 web 的盒子。",
+    tech: "loadProfile 读 $DSH_HOME/profiles/<name>/package.json 的 dsh.profile.bundles。",
+  },
+  {
+    title: "叠补丁",
+    kid: "按顺序把袋子倒进书包。",
+    tech: "composeEntries：空列表上 applyEntryPatches。",
+  },
+  {
+    title: "boot()",
+    kid: "把底板放好，积木开始卡住。",
+    tech: "创建根 Context，挂 Loader + include + group，等待全部 fiber ACTIVE。",
+  },
+  {
+    title: "断言",
+    kid: "数一数，少一块就大声说。",
+    tech: "assertEntriesLoaded / assertEntriesActivated。失败 fail-loud，先 restore TTY 再 exit(1)。",
+  },
+  {
+    title: "开窗",
+    kid: "web 模式打开信箱和玻璃。",
+    tech: "web-runtime 打印 URL，默认打开浏览器。headless 则创建一个 Agent、提交任务、打印最后一段助手文本。",
+  },
 ];
 
 export const PRESETS = [

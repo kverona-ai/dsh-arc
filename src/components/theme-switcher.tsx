@@ -60,7 +60,15 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
     >
       {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
       {!compact ? (
-        <span>{locale === "en" ? (theme === "dark" ? "Light" : "Dark") : theme === "dark" ? "浅色" : "深色"}</span>
+        <span>
+          {locale === "en"
+            ? theme === "dark"
+              ? "Light"
+              : "Dark"
+            : theme === "dark"
+              ? "浅色"
+              : "深色"}
+        </span>
       ) : null}
     </button>
   );

@@ -8,6 +8,8 @@ export interface Pkg {
   kid: string;
 }
 
+// One package per line: this reads as a table, and wrapping it costs 1000 lines.
+// prettier-ignore
 export const PACKAGES: Pkg[] = [
   { slug: "cordis", group: "vendor", npm: "@deepseek-ai/cordis", role: "lib", job: "Context / Fiber / Service / 事件 / 注册表", kid: "积木底板" },
   { slug: "loader", group: "vendor", npm: "@deepseek-ai/cordis-plugin-loader", ctx: "ctx.loader", role: "lib", job: "从 YAML 挂载插件树", kid: "按说明书拿积木" },

@@ -29,7 +29,8 @@
   --radius-2xl: 32px;
 
   --shadow-border: 0 0 0 1px color-mix(in oklab, var(--color-fg) 10%, transparent);
-  --shadow-lift: 0 0 0 1px color-mix(in oklab, var(--color-fg) 10%, transparent),
+  --shadow-lift:
+    0 0 0 1px color-mix(in oklab, var(--color-fg) 10%, transparent),
     0 18px 40px -24px rgb(0 0 0 / 0.55);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -55,10 +56,10 @@ html[data-theme="light"] {
   --color-warn: #9a6b2f;
   --color-ok: #3f7355;
   --color-danger: #a44a3f;
-  --shadow-border: 0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent),
-    0 1px 2px rgb(74 63 49 / 0.05);
-  --shadow-lift: 0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent),
-    0 18px 40px -24px rgb(74 63 49 / 0.35);
+  --shadow-border:
+    0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent), 0 1px 2px rgb(74 63 49 / 0.05);
+  --shadow-lift:
+    0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent), 0 18px 40px -24px rgb(74 63 49 / 0.35);
 }
 
 @layer base {
@@ -73,8 +74,16 @@ html[data-theme="light"] {
     min-height: 100dvh;
     font-family: var(--font-sans);
     background:
-      radial-gradient(1200px 700px at 12% -10%, color-mix(in oklab, var(--color-accent) 8%, transparent), transparent 60%),
-      radial-gradient(900px 600px at 110% 0%, color-mix(in oklab, var(--color-accent) 5%, transparent), transparent 55%),
+      radial-gradient(
+        1200px 700px at 12% -10%,
+        color-mix(in oklab, var(--color-accent) 8%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 600px at 110% 0%,
+        color-mix(in oklab, var(--color-accent) 5%, transparent),
+        transparent 55%
+      ),
       var(--color-bg);
     color: var(--color-fg);
     transition:
@@ -92,7 +101,9 @@ html[data-theme="light"] {
     color: var(--color-fg);
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     text-wrap: balance;
     font-family: var(--font-display);
     letter-spacing: -0.03em;
@@ -104,7 +115,9 @@ html[data-theme="light"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

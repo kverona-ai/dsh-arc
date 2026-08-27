@@ -73,7 +73,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   shell: { job: "bash executor seam", kid: "The command voice" },
   "bash-sandbox": { job: "POSIX default: fence, then run", kid: "Call commands through the fence" },
   "pwsh-sandbox": { job: "win32 twin stack", kid: "The Windows command voice" },
-  "bash-local": { job: "Bash executor over the local subprocess seam", kid: "Call commands in this room" },
+  "bash-local": {
+    job: "Bash executor over the local subprocess seam",
+    kid: "Call commands in this room",
+  },
   "pwsh-local": { job: "Local PowerShell executor", kid: "The Windows voice in this room" },
   "tool-bash": { job: "Model-facing bash", kid: "The command the model can type" },
   "tool-bash-persistent": {
@@ -110,7 +113,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   "plan-mode": { job: "Design first, then exit through human review", kid: "Draw the plan first" },
   goal: { job: "Event-sourced goals within a session", kid: "A goal magnet on the fridge" },
-  "command-goal": { job: "Human-facing slash command for persisted goals", kid: "Put a goal on the fridge" },
+  "command-goal": {
+    job: "Human-facing slash command for persisted goals",
+    kid: "Put a goal on the fridge",
+  },
   "goal-round-driver": {
     job: "Race-fenced same-session goal-round driver",
     kid: "Finish a goal one round at a time",
@@ -156,8 +162,14 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   "web-seam": { job: "search / fetch registry", kid: "The web socket" },
   "tool-web": { job: "web_search / web_fetch", kid: "Go look online" },
-  "web-fetch-http": { job: "Anonymous public HTTP(S) fetch provider", kid: "Bring a web page back to read" },
-  "web-search-deepseek": { job: "DeepSeek native web_search provider", kid: "Ask DeepSeek to search" },
+  "web-fetch-http": {
+    job: "Anonymous public HTTP(S) fetch provider",
+    kid: "Bring a web page back to read",
+  },
+  "web-search-deepseek": {
+    job: "DeepSeek native web_search provider",
+    kid: "Ask DeepSeek to search",
+  },
   "web-search-exa": { job: "Exa search provider", kid: "Use another search teacher" },
   "web-search-perplexity": {
     job: "Perplexity search provider",
@@ -234,7 +246,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
     job: "Load workspace AGENTS.md and CLAUDE.md files",
     kid: "Read the manual before leaving",
   },
-  "file-reference": { job: "@file discovery contract and shared grammar", kid: "Point to a paper by name" },
+  "file-reference": {
+    job: "@file discovery contract and shared grammar",
+    kid: "Point to a paper by name",
+  },
   "file-reference-local": {
     job: "Bounded fuzzy @file indexes over the local filesystem",
     kid: "Find that paper on the desk",

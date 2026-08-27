@@ -13,7 +13,13 @@ export function XLogo({ className }: { className?: string }) {
   );
 }
 
-export function CreatorAvatar({ className, badge = true }: { className?: string; badge?: boolean }) {
+export function CreatorAvatar({
+  className,
+  badge = true,
+}: {
+  className?: string;
+  badge?: boolean;
+}) {
   return (
     <span className={cn("relative inline-flex shrink-0", className)}>
       <img

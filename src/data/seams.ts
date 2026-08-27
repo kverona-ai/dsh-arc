@@ -68,9 +68,7 @@ export const SEAMS: SeamExample[] = [
     name: "围栏",
     kid: "不是搬家，是在这间屋里装婴儿门。",
     definition: "@deepseek-ai/dsh-sandbox · SandboxProvider.confine",
-    providers: [
-      { pkg: "dsh-sandbox-local", note: "bwrap / Landlock / Seatbelt / Windows ACL" },
-    ],
+    providers: [{ pkg: "dsh-sandbox-local", note: "bwrap / Landlock / Seatbelt / Windows ACL" }],
     consumers: [
       { pkg: "dsh-bash-sandbox", note: "先 confine argv 再 spawn" },
       { pkg: "dsh-terminal-bash", note: "PTY 同样被围" },
@@ -88,9 +86,7 @@ export const SEAMS: SeamExample[] = [
       { pkg: "dsh-pwsh-sandbox", note: "Windows 孪生行" },
       { pkg: "dsh-bash-local", note: "不围栏的本地执行器" },
     ],
-    consumers: [
-      { pkg: "dsh-tool-bash / tool-pwsh", note: "面向模型的 bash/pwsh 工具" },
-    ],
+    consumers: [{ pkg: "dsh-tool-bash / tool-pwsh", note: "面向模型的 bash/pwsh 工具" }],
     swapStory: "同一份 base patch 按平台门控，每个宿主恰好挂载一个 shell 栈。",
   },
   {
@@ -133,14 +129,13 @@ export const SEAMS: SeamExample[] = [
     name: "把照片按指纹收好",
     kid: "图片不贴进日记本，只在日记上写一张纸条：收在抽屉第几格。",
     definition: "@deepseek-ai/dsh-attachment · ImageAttachmentRef",
-    providers: [
-      { pkg: "dsh-attachment-local", note: "DSH_HOME 下内容寻址的私有存储" },
-    ],
+    providers: [{ pkg: "dsh-attachment-local", note: "DSH_HOME 下内容寻址的私有存储" }],
     consumers: [
       { pkg: "dsh-tool-fs", note: "read_image：先存好，再回图片块" },
       { pkg: "dsh-llm-deepseek", note: "把引用解析成 Files API 文件 id" },
     ],
-    swapStory: "saveImage 先提交，才轮到模型可见事件落日志——日志里只有引用，没有 base64、浏览器路径或提供方 URL。挂了耐久存储 read_image 才注册；路由模型不声明 image 输入则执行时拒绝。",
+    swapStory:
+      "saveImage 先提交，才轮到模型可见事件落日志——日志里只有引用，没有 base64、浏览器路径或提供方 URL。挂了耐久存储 read_image 才注册；路由模型不声明 image 输入则执行时拒绝。",
   },
 ];
 
