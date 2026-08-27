@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BootRouteImport } from './routes/boot'
 import { Route as CordisRouteImport } from './routes/cordis'
+import { Route as EnRouteImport } from './routes/en'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -21,8 +22,23 @@ import { Route as ModulesRouteImport } from './routes/modules'
 import { Route as PrinciplesRouteImport } from './routes/principles'
 import { Route as SeamsRouteImport } from './routes/seams'
 import { Route as StoryRouteImport } from './routes/story'
+import { Route as ApiLocaleSuggestionRouteImport } from './routes/api.locale-suggestion'
+import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnBootRouteImport } from './routes/en.boot'
+import { Route as EnCordisRouteImport } from './routes/en.cordis'
+import { Route as EnEventsRouteImport } from './routes/en.events'
+import { Route as EnFaqRouteImport } from './routes/en.faq'
+import { Route as EnGlossaryRouteImport } from './routes/en.glossary'
+import { Route as EnLoopRouteImport } from './routes/en.loop'
+import { Route as EnMapRouteImport } from './routes/en.map'
+import { Route as EnModulesRouteImport } from './routes/en.modules'
+import { Route as EnPrinciplesRouteImport } from './routes/en.principles'
+import { Route as EnSeamsRouteImport } from './routes/en.seams'
+import { Route as EnStoryRouteImport } from './routes/en.story'
 import { Route as ModulesIndexRouteImport } from './routes/modules.index'
 import { Route as ModulesSlugRouteImport } from './routes/modules.$slug'
+import { Route as EnModulesIndexRouteImport } from './routes/en.modules.index'
+import { Route as EnModulesSlugRouteImport } from './routes/en.modules.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -37,6 +53,11 @@ const BootRoute = BootRouteImport.update({
 const CordisRoute = CordisRouteImport.update({
   id: '/cordis',
   path: '/cordis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -84,6 +105,71 @@ const StoryRoute = StoryRouteImport.update({
   path: '/story',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLocaleSuggestionRoute = ApiLocaleSuggestionRouteImport.update({
+  id: '/api/locale-suggestion',
+  path: '/api/locale-suggestion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnBootRoute = EnBootRouteImport.update({
+  id: '/boot',
+  path: '/boot',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnCordisRoute = EnCordisRouteImport.update({
+  id: '/cordis',
+  path: '/cordis',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnEventsRoute = EnEventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnFaqRoute = EnFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnGlossaryRoute = EnGlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnLoopRoute = EnLoopRouteImport.update({
+  id: '/loop',
+  path: '/loop',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnMapRoute = EnMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnModulesRoute = EnModulesRouteImport.update({
+  id: '/modules',
+  path: '/modules',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnPrinciplesRoute = EnPrinciplesRouteImport.update({
+  id: '/principles',
+  path: '/principles',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnSeamsRoute = EnSeamsRouteImport.update({
+  id: '/seams',
+  path: '/seams',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnStoryRoute = EnStoryRouteImport.update({
+  id: '/story',
+  path: '/story',
+  getParentRoute: () => EnRoute,
+} as any)
 const ModulesIndexRoute = ModulesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -94,11 +180,22 @@ const ModulesSlugRoute = ModulesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ModulesRoute,
 } as any)
+const EnModulesIndexRoute = EnModulesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnModulesRoute,
+} as any)
+const EnModulesSlugRoute = EnModulesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EnModulesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boot': typeof BootRoute
   '/cordis': typeof CordisRoute
+  '/en': typeof EnRouteWithChildren
   '/events': typeof EventsRoute
   '/faq': typeof FaqRoute
   '/glossary': typeof GlossaryRoute
@@ -108,8 +205,23 @@ export interface FileRoutesByFullPath {
   '/principles': typeof PrinciplesRoute
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
+  '/api/locale-suggestion': typeof ApiLocaleSuggestionRoute
+  '/en/boot': typeof EnBootRoute
+  '/en/cordis': typeof EnCordisRoute
+  '/en/events': typeof EnEventsRoute
+  '/en/faq': typeof EnFaqRoute
+  '/en/glossary': typeof EnGlossaryRoute
+  '/en/loop': typeof EnLoopRoute
+  '/en/map': typeof EnMapRoute
+  '/en/modules': typeof EnModulesRouteWithChildren
+  '/en/principles': typeof EnPrinciplesRoute
+  '/en/seams': typeof EnSeamsRoute
+  '/en/story': typeof EnStoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/en/': typeof EnIndexRoute
   '/modules/': typeof ModulesIndexRoute
+  '/en/modules/$slug': typeof EnModulesSlugRoute
+  '/en/modules/': typeof EnModulesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -123,14 +235,29 @@ export interface FileRoutesByTo {
   '/principles': typeof PrinciplesRoute
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
+  '/api/locale-suggestion': typeof ApiLocaleSuggestionRoute
+  '/en/boot': typeof EnBootRoute
+  '/en/cordis': typeof EnCordisRoute
+  '/en/events': typeof EnEventsRoute
+  '/en/faq': typeof EnFaqRoute
+  '/en/glossary': typeof EnGlossaryRoute
+  '/en/loop': typeof EnLoopRoute
+  '/en/map': typeof EnMapRoute
+  '/en/principles': typeof EnPrinciplesRoute
+  '/en/seams': typeof EnSeamsRoute
+  '/en/story': typeof EnStoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/en': typeof EnIndexRoute
   '/modules': typeof ModulesIndexRoute
+  '/en/modules/$slug': typeof EnModulesSlugRoute
+  '/en/modules': typeof EnModulesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/boot': typeof BootRoute
   '/cordis': typeof CordisRoute
+  '/en': typeof EnRouteWithChildren
   '/events': typeof EventsRoute
   '/faq': typeof FaqRoute
   '/glossary': typeof GlossaryRoute
@@ -140,8 +267,23 @@ export interface FileRoutesById {
   '/principles': typeof PrinciplesRoute
   '/seams': typeof SeamsRoute
   '/story': typeof StoryRoute
+  '/api/locale-suggestion': typeof ApiLocaleSuggestionRoute
+  '/en/boot': typeof EnBootRoute
+  '/en/cordis': typeof EnCordisRoute
+  '/en/events': typeof EnEventsRoute
+  '/en/faq': typeof EnFaqRoute
+  '/en/glossary': typeof EnGlossaryRoute
+  '/en/loop': typeof EnLoopRoute
+  '/en/map': typeof EnMapRoute
+  '/en/modules': typeof EnModulesRouteWithChildren
+  '/en/principles': typeof EnPrinciplesRoute
+  '/en/seams': typeof EnSeamsRoute
+  '/en/story': typeof EnStoryRoute
   '/modules/$slug': typeof ModulesSlugRoute
+  '/en/': typeof EnIndexRoute
   '/modules/': typeof ModulesIndexRoute
+  '/en/modules/$slug': typeof EnModulesSlugRoute
+  '/en/modules/': typeof EnModulesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -149,6 +291,7 @@ export interface FileRouteTypes {
     | '/'
     | '/boot'
     | '/cordis'
+    | '/en'
     | '/events'
     | '/faq'
     | '/glossary'
@@ -158,8 +301,23 @@ export interface FileRouteTypes {
     | '/principles'
     | '/seams'
     | '/story'
+    | '/api/locale-suggestion'
+    | '/en/boot'
+    | '/en/cordis'
+    | '/en/events'
+    | '/en/faq'
+    | '/en/glossary'
+    | '/en/loop'
+    | '/en/map'
+    | '/en/modules'
+    | '/en/principles'
+    | '/en/seams'
+    | '/en/story'
     | '/modules/$slug'
+    | '/en/'
     | '/modules/'
+    | '/en/modules/$slug'
+    | '/en/modules/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -173,13 +331,28 @@ export interface FileRouteTypes {
     | '/principles'
     | '/seams'
     | '/story'
+    | '/api/locale-suggestion'
+    | '/en/boot'
+    | '/en/cordis'
+    | '/en/events'
+    | '/en/faq'
+    | '/en/glossary'
+    | '/en/loop'
+    | '/en/map'
+    | '/en/principles'
+    | '/en/seams'
+    | '/en/story'
     | '/modules/$slug'
+    | '/en'
     | '/modules'
+    | '/en/modules/$slug'
+    | '/en/modules'
   id:
     | '__root__'
     | '/'
     | '/boot'
     | '/cordis'
+    | '/en'
     | '/events'
     | '/faq'
     | '/glossary'
@@ -189,14 +362,30 @@ export interface FileRouteTypes {
     | '/principles'
     | '/seams'
     | '/story'
+    | '/api/locale-suggestion'
+    | '/en/boot'
+    | '/en/cordis'
+    | '/en/events'
+    | '/en/faq'
+    | '/en/glossary'
+    | '/en/loop'
+    | '/en/map'
+    | '/en/modules'
+    | '/en/principles'
+    | '/en/seams'
+    | '/en/story'
     | '/modules/$slug'
+    | '/en/'
     | '/modules/'
+    | '/en/modules/$slug'
+    | '/en/modules/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BootRoute: typeof BootRoute
   CordisRoute: typeof CordisRoute
+  EnRoute: typeof EnRouteWithChildren
   EventsRoute: typeof EventsRoute
   FaqRoute: typeof FaqRoute
   GlossaryRoute: typeof GlossaryRoute
@@ -206,6 +395,7 @@ export interface RootRouteChildren {
   PrinciplesRoute: typeof PrinciplesRoute
   SeamsRoute: typeof SeamsRoute
   StoryRoute: typeof StoryRoute
+  ApiLocaleSuggestionRoute: typeof ApiLocaleSuggestionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -229,6 +419,13 @@ declare module '@tanstack/react-router' {
       path: '/cordis'
       fullPath: '/cordis'
       preLoaderRoute: typeof CordisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -294,6 +491,97 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/locale-suggestion': {
+      id: '/api/locale-suggestion'
+      path: '/api/locale-suggestion'
+      fullPath: '/api/locale-suggestion'
+      preLoaderRoute: typeof ApiLocaleSuggestionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/': {
+      id: '/en/'
+      path: '/'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/boot': {
+      id: '/en/boot'
+      path: '/boot'
+      fullPath: '/en/boot'
+      preLoaderRoute: typeof EnBootRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/cordis': {
+      id: '/en/cordis'
+      path: '/cordis'
+      fullPath: '/en/cordis'
+      preLoaderRoute: typeof EnCordisRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/events': {
+      id: '/en/events'
+      path: '/events'
+      fullPath: '/en/events'
+      preLoaderRoute: typeof EnEventsRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/faq': {
+      id: '/en/faq'
+      path: '/faq'
+      fullPath: '/en/faq'
+      preLoaderRoute: typeof EnFaqRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/glossary': {
+      id: '/en/glossary'
+      path: '/glossary'
+      fullPath: '/en/glossary'
+      preLoaderRoute: typeof EnGlossaryRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/loop': {
+      id: '/en/loop'
+      path: '/loop'
+      fullPath: '/en/loop'
+      preLoaderRoute: typeof EnLoopRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/map': {
+      id: '/en/map'
+      path: '/map'
+      fullPath: '/en/map'
+      preLoaderRoute: typeof EnMapRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/modules': {
+      id: '/en/modules'
+      path: '/modules'
+      fullPath: '/en/modules'
+      preLoaderRoute: typeof EnModulesRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/principles': {
+      id: '/en/principles'
+      path: '/principles'
+      fullPath: '/en/principles'
+      preLoaderRoute: typeof EnPrinciplesRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/seams': {
+      id: '/en/seams'
+      path: '/seams'
+      fullPath: '/en/seams'
+      preLoaderRoute: typeof EnSeamsRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/story': {
+      id: '/en/story'
+      path: '/story'
+      fullPath: '/en/story'
+      preLoaderRoute: typeof EnStoryRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/modules/': {
       id: '/modules/'
       path: '/'
@@ -308,8 +596,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ModulesSlugRouteImport
       parentRoute: typeof ModulesRoute
     }
+    '/en/modules/': {
+      id: '/en/modules/'
+      path: '/'
+      fullPath: '/en/modules/'
+      preLoaderRoute: typeof EnModulesIndexRouteImport
+      parentRoute: typeof EnModulesRoute
+    }
+    '/en/modules/$slug': {
+      id: '/en/modules/$slug'
+      path: '/$slug'
+      fullPath: '/en/modules/$slug'
+      preLoaderRoute: typeof EnModulesSlugRouteImport
+      parentRoute: typeof EnModulesRoute
+    }
   }
 }
+
+interface EnModulesRouteChildren {
+  EnModulesSlugRoute: typeof EnModulesSlugRoute
+  EnModulesIndexRoute: typeof EnModulesIndexRoute
+}
+
+const EnModulesRouteChildren: EnModulesRouteChildren = {
+  EnModulesSlugRoute: EnModulesSlugRoute,
+  EnModulesIndexRoute: EnModulesIndexRoute,
+}
+
+const EnModulesRouteWithChildren = EnModulesRoute._addFileChildren(
+  EnModulesRouteChildren,
+)
+
+interface EnRouteChildren {
+  EnBootRoute: typeof EnBootRoute
+  EnCordisRoute: typeof EnCordisRoute
+  EnEventsRoute: typeof EnEventsRoute
+  EnFaqRoute: typeof EnFaqRoute
+  EnGlossaryRoute: typeof EnGlossaryRoute
+  EnLoopRoute: typeof EnLoopRoute
+  EnMapRoute: typeof EnMapRoute
+  EnModulesRoute: typeof EnModulesRouteWithChildren
+  EnPrinciplesRoute: typeof EnPrinciplesRoute
+  EnSeamsRoute: typeof EnSeamsRoute
+  EnStoryRoute: typeof EnStoryRoute
+  EnIndexRoute: typeof EnIndexRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnBootRoute: EnBootRoute,
+  EnCordisRoute: EnCordisRoute,
+  EnEventsRoute: EnEventsRoute,
+  EnFaqRoute: EnFaqRoute,
+  EnGlossaryRoute: EnGlossaryRoute,
+  EnLoopRoute: EnLoopRoute,
+  EnMapRoute: EnMapRoute,
+  EnModulesRoute: EnModulesRouteWithChildren,
+  EnPrinciplesRoute: EnPrinciplesRoute,
+  EnSeamsRoute: EnSeamsRoute,
+  EnStoryRoute: EnStoryRoute,
+  EnIndexRoute: EnIndexRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 interface ModulesRouteChildren {
   ModulesSlugRoute: typeof ModulesSlugRoute
@@ -328,6 +676,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BootRoute: BootRoute,
   CordisRoute: CordisRoute,
+  EnRoute: EnRouteWithChildren,
   EventsRoute: EventsRoute,
   FaqRoute: FaqRoute,
   GlossaryRoute: GlossaryRoute,
@@ -337,6 +686,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrinciplesRoute: PrinciplesRoute,
   SeamsRoute: SeamsRoute,
   StoryRoute: StoryRoute,
+  ApiLocaleSuggestionRoute: ApiLocaleSuggestionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

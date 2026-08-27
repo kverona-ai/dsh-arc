@@ -1,9 +1,10 @@
-# DSH 积木书
+# DSH Brickbook / DSH 积木书
 
-> DeepSeek Harness (dsh) architecture explainer. Kid-friendly Chinese with the real package names. Source-level reading of the developer preview: Everything is a plugin. Every run is traceable.
+> A bilingual DeepSeek Harness (dsh) architecture explainer with plain-language stories and real package names. Source-level reading of the developer preview: Everything is a plugin. Every run is traceable.
 
 This site is an unofficial picture-book of https://github.com/deepseek-ai/deepseek-harness
 Live: https://dsh.177.best
+English: https://dsh.177.best/en
 Repo: https://github.com/kverona-ai/dsh-arc
 Author: wangxy
 
@@ -20,18 +21,18 @@ Author: wangxy
 
 ## Pages
 
-- [Cover](https://dsh.177.best/): ten-layer city and reading order
-- [Story](https://dsh.177.best/story): seven-page primer
-- [Principles](https://dsh.177.best/principles): two laws, four presets, where new behavior hangs
-- [Map](https://dsh.177.best/map): module layers, Host vs Client
-- [Cordis](https://dsh.177.best/cordis): plugins, Context, waterfall, reversible effects
-- [Boot](https://dsh.177.best/boot): profile, bundle, patch, dump-config
-- [Loop](https://dsh.177.best/loop): turn, step, inbox, deriveMessages
-- [Seams](https://dsh.177.best/seams): definition / provider / consumer; fs+subprocess travel together
-- [Events](https://dsh.177.best/events): session vs agent vs capability events
-- [Modules](https://dsh.177.best/modules): package catalog
-- [Glossary](https://dsh.177.best/glossary): term map
-- [FAQ](https://dsh.177.best/faq): eight questions with source-accurate answers
+- [Cover](https://dsh.177.best/en): ten-layer city and reading order
+- [Story](https://dsh.177.best/en/story): seven-page primer
+- [Principles](https://dsh.177.best/en/principles): two laws, four presets, where new behavior hangs
+- [Map](https://dsh.177.best/en/map): module layers, Host vs Client
+- [Cordis](https://dsh.177.best/en/cordis): plugins, Context, waterfall, reversible effects
+- [Boot](https://dsh.177.best/en/boot): profile, bundle, patch, dump-config
+- [Loop](https://dsh.177.best/en/loop): turn, step, inbox, deriveMessages
+- [Seams](https://dsh.177.best/en/seams): definition / provider / consumer; fs+subprocess travel together
+- [Events](https://dsh.177.best/en/events): session vs agent vs capability events
+- [Modules](https://dsh.177.best/en/modules): package catalog
+- [Glossary](https://dsh.177.best/en/glossary): term map
+- [FAQ](https://dsh.177.best/en/faq): eight questions with source-accurate answers
 
 ## Optional
 

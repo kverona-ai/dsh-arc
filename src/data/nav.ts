@@ -16,16 +16,16 @@ export type NavItem = (typeof NAV)[number];
 export type NavPath = NavItem["to"];
 
 export function navIsActive(pathname: string, to: NavPath) {
-  if (to === "/") return pathname === "/";
-  return pathname === to || pathname.startsWith(`${to}/`);
+  const path = basePath(pathname);
+  if (to === "/") return path === "/";
+  return path === to || path.startsWith(`${to}/`);
 }
 
 export function navNeighbors(pathname: string) {
-  const exact = NAV.findIndex((item) => item.to === pathname);
+  const path = basePath(pathname);
+  const exact = NAV.findIndex((item) => item.to === path);
   const i =
-    exact >= 0
-      ? exact
-      : NAV.findIndex((item) => item.to !== "/" && pathname.startsWith(`${item.to}/`));
+    exact >= 0 ? exact : NAV.findIndex((item) => item.to !== "/" && path.startsWith(`${item.to}/`));
   if (i < 0) return { prev: undefined, next: undefined, index: -1 };
   return {
     index: i,
@@ -33,3 +33,4 @@ export function navNeighbors(pathname: string) {
     next: i < NAV.length - 1 ? NAV[i + 1] : undefined,
   };
 }
+import { basePath } from "../lib/locale.ts";

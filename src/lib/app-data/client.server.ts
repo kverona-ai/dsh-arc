@@ -211,7 +211,9 @@ function tokenIdentityKey(token: string): string {
             .digest("base64url");
         }
       }
-    } catch {}
+    } catch {
+      // An opaque token is valid input; hash it as-is below.
+    }
   }
   return createHash("sha256").update(token).digest("base64url");
 }

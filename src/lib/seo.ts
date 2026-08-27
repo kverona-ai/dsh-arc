@@ -1,15 +1,16 @@
 export const SITE_ORIGIN = "https://dsh.177.best";
 export const SITE_NAME = "DSH 积木书";
+export const SITE_NAME_EN = "DSH Brickbook";
 export const SITE_TAGLINE = "Everything is a Plugin";
 export const SITE_AUTHOR = "wangxy";
 export const SITE_DESCRIPTION =
   "DeepSeek Harness（dsh）架构图解：Everything is a plugin，Every run is traceable。Cordis 底板、会话日志、能力 seam，小孩版与源码对照。";
 export const SITE_DESCRIPTION_EN =
-  "A source-level explainer of DeepSeek Harness: plugin architecture on Cordis, append-only session logs, and capability seams. Kid-friendly Chinese with the real package names.";
+  "A source-level explainer of DeepSeek Harness: Cordis plugin architecture, append-only session logs, and capability seams, with plain-language stories and real package names.";
 export const SOURCE_REPO = "https://github.com/deepseek-ai/deepseek-harness";
 export const SITE_REPO = "https://github.com/kverona-ai/dsh-arc";
 export const DATE_PUBLISHED = "2026-08-23";
-export const DATE_MODIFIED = "2026-08-24";
+export const DATE_MODIFIED = "2026-08-27";
 
 export type PageSeo = {
   path: string;
@@ -92,13 +93,96 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
 };
 
-export function canonical(path: string) {
-  if (!path || path === "/") return `${SITE_ORIGIN}/`;
-  return `${SITE_ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
+export const PAGE_SEO_EN: Record<string, PageSeo> = {
+  "/": {
+    path: "/",
+    title: "DSH Brickbook · DeepSeek Harness Architecture Explained",
+    description:
+      "Understand DeepSeek Harness as a brick city: the Cordis plugin baseplate, append-only Session journal, capability seams, and replaceable agent loop.",
+  },
+  "/story": {
+    path: "/story",
+    title: "DeepSeek Harness in Seven Pages · DSH Brickbook",
+    description:
+      "A plain-language tour of Cordis, profiles, the Session journal, conversation turns, capability seams, and the Host/Client split.",
+  },
+  "/principles": {
+    path: "/principles",
+    title: "Two Principles: Plugins and Traceability · DSH",
+    description:
+      "Everything is a plugin. Every run is traceable. Learn where new behavior belongs: ctx.llm, ctx.tools, agent events, and isolate realms.",
+  },
+  "/map": {
+    path: "/map",
+    title: "DeepSeek Harness Architecture Map · DSH Brickbook",
+    description:
+      "Explore ten layers from the Cordis baseplate to Host and Client: agent loop, LLM, execution world, Session, skills, and UI.",
+  },
+  "/cordis": {
+    path: "/cordis",
+    title: "Cordis: Plugins, Context, and Reversible Effects · DSH",
+    description:
+      "How Cordis composes plugins with Context, inject, typed events, Fiber lifecycles, and reversible effects. Scope is not isolate.",
+  },
+  "/boot": {
+    path: "/boot",
+    title: "How dsh Boots: Profiles, Bundles, and Patches",
+    description:
+      "A running DeepSeek Harness is a layered plugin tree: empty root, dsh-base, web-app or headless, profile patches, and startup overlays.",
+  },
+  "/loop": {
+    path: "/loop",
+    title: "One Conversation Turn: Steps, Inbox, and Session Log · DSH",
+    description:
+      "Follow followup, steer, inject, turn/start, model requests, tool execution, and turn/end through the DeepSeek Harness agent loop.",
+  },
+  "/seams": {
+    path: "/seams",
+    title: "Capability Seams: Definitions, Providers, Consumers · DSH",
+    description:
+      "Replace ctx.fs and ctx.subprocess together so Bash, PTY, and LSP move with the execution world. A sandbox fence is not an E2B move.",
+  },
+  "/events": {
+    path: "/events",
+    title: "Event Bus: Session, Agent, and Capability Events · DSH",
+    description:
+      "Choose the right event domain: durable session facts, in-flight agent events, and capability policy on tools, filesystems, and LLM streams.",
+  },
+  "/modules": {
+    path: "/modules",
+    title: "DeepSeek Harness Module Directory · DSH Brickbook",
+    description:
+      "Browse representative packages across the agent loop, Session, LLM, filesystem, sandbox, subagents, and Host/Client layers.",
+  },
+  "/glossary": {
+    path: "/glossary",
+    title: "DeepSeek Harness Glossary: Cordis, inject, isolate, seam",
+    description:
+      "Source-level definitions for Cordis, Context, Fiber, Session, waterfall, scope, isolate, execution world, capability seam, and more.",
+  },
+  "/faq": {
+    path: "/faq",
+    title: "DeepSeek Harness Architecture FAQ · DSH Brickbook",
+    description:
+      "Answers about Cordis, Everything is a plugin, model-visible means logged, sandbox vs E2B, scope vs isolate, and turns vs steps.",
+  },
+};
+
+export function canonical(path: string, locale: "zh-CN" | "en" = "zh-CN") {
+  const normalized = !path || path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
+  if (locale === "en") return `${SITE_ORIGIN}/en${normalized}`;
+  return normalized ? `${SITE_ORIGIN}${normalized}` : `${SITE_ORIGIN}/`;
 }
 
-export function pageSeo(path: string, override?: Partial<PageSeo>): PageSeo {
-  const base = PAGE_SEO[path];
+export function pageSeo(
+  path: string,
+  override?: Partial<PageSeo>,
+  locale: "zh-CN" | "en" = "zh-CN",
+): PageSeo {
+  const pages = locale === "en" ? PAGE_SEO_EN : PAGE_SEO;
+  const siteName = locale === "en" ? SITE_NAME_EN : SITE_NAME;
+  const siteDescription = locale === "en" ? SITE_DESCRIPTION_EN : SITE_DESCRIPTION;
+  const base = pages[path];
   if (base) {
     return {
       path: override?.path ?? base.path,
@@ -111,30 +195,38 @@ export function pageSeo(path: string, override?: Partial<PageSeo>): PageSeo {
     // Lazy import avoided: callers may pass override from groupBySlug.
     return {
       path,
-      title: override?.title ?? `${slug} · DeepSeek Harness 模块 | ${SITE_NAME}`,
-      description: override?.description ?? SITE_DESCRIPTION,
+      title:
+        override?.title ??
+        `${slug} · DeepSeek Harness ${locale === "en" ? "Module" : "模块"} | ${siteName}`,
+      description: override?.description ?? siteDescription,
     };
   }
   return {
     path,
-    title: override?.title ?? `${SITE_NAME} · DeepSeek Harness`,
-    description: override?.description ?? SITE_DESCRIPTION,
+    title: override?.title ?? `${siteName} · DeepSeek Harness`,
+    description: override?.description ?? siteDescription,
   };
 }
 
-export function seoHead(path: string, override?: Partial<PageSeo>) {
-  const page = pageSeo(path, override);
-  const url = canonical(page.path);
+export function seoHead(
+  path: string,
+  override?: Partial<PageSeo>,
+  locale: "zh-CN" | "en" = "zh-CN",
+) {
+  const page = pageSeo(path, override, locale);
+  const url = canonical(page.path, locale);
   const image = `${SITE_ORIGIN}/og.jpg`;
+  const siteName = locale === "en" ? SITE_NAME_EN : SITE_NAME;
   return {
     meta: [
       { title: page.title },
       { name: "description", content: page.description },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "author", content: SITE_AUTHOR },
-      { name: "application-name", content: SITE_NAME },
-      { property: "og:locale", content: "zh_CN" },
-      { property: "og:site_name", content: SITE_NAME },
+      { name: "application-name", content: siteName },
+      { property: "og:locale", content: locale === "en" ? "en_US" : "zh_CN" },
+      { property: "og:locale:alternate", content: locale === "en" ? "zh_CN" : "en_US" },
+      { property: "og:site_name", content: siteName },
       { property: "og:type", content: "website" },
       { property: "og:title", content: page.title },
       { property: "og:description", content: page.description },
@@ -147,7 +239,12 @@ export function seoHead(path: string, override?: Partial<PageSeo>) {
       { name: "twitter:description", content: page.description },
       { name: "twitter:image", content: image },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [
+      { rel: "canonical", href: url },
+      { rel: "alternate", hrefLang: "zh-CN", href: canonical(page.path, "zh-CN") },
+      { rel: "alternate", hrefLang: "en", href: canonical(page.path, "en") },
+      { rel: "alternate", hrefLang: "x-default", href: canonical(page.path, "zh-CN") },
+    ],
   };
 }
 
@@ -155,18 +252,26 @@ export function absoluteUrl(path: string) {
   return canonical(path);
 }
 
-export function websiteJsonLd(): { "@context": string; "@graph": Record<string, unknown>[] } {
+export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
+  "@context": string;
+  "@graph": Record<string, unknown>[];
+} {
+  const en = locale === "en";
+  const siteUrl = canonical("/", locale);
+  const siteId = `${siteUrl}#website`;
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": `${SITE_ORIGIN}/#website`,
-        url: `${SITE_ORIGIN}/`,
-        name: SITE_NAME,
-        alternateName: ["DeepSeek Harness 积木书", "dsh architecture", SITE_TAGLINE],
-        description: SITE_DESCRIPTION,
-        inLanguage: "zh-CN",
+        "@id": siteId,
+        url: siteUrl,
+        name: en ? SITE_NAME_EN : SITE_NAME,
+        alternateName: en
+          ? ["DeepSeek Harness Brickbook", "dsh architecture", SITE_TAGLINE]
+          : ["DeepSeek Harness 积木书", "dsh architecture", SITE_TAGLINE],
+        description: en ? SITE_DESCRIPTION_EN : SITE_DESCRIPTION,
+        inLanguage: locale,
         publisher: { "@id": `${SITE_ORIGIN}/#author` },
       },
       {
@@ -177,21 +282,18 @@ export function websiteJsonLd(): { "@context": string; "@graph": Record<string, 
       },
       {
         "@type": "TechArticle",
-        "@id": `${SITE_ORIGIN}/#work`,
-        headline: "DeepSeek Harness 架构图解：Everything is a Plugin",
+        "@id": `${siteUrl}#work`,
+        headline: en
+          ? "DeepSeek Harness Architecture Explained: Everything is a Plugin"
+          : "DeepSeek Harness 架构图解：Everything is a Plugin",
         alternativeHeadline: SITE_DESCRIPTION_EN,
-        inLanguage: "zh-CN",
-        url: `${SITE_ORIGIN}/`,
+        inLanguage: locale,
+        url: siteUrl,
         datePublished: DATE_PUBLISHED,
         dateModified: DATE_MODIFIED,
         author: { "@id": `${SITE_ORIGIN}/#author` },
         publisher: { "@id": `${SITE_ORIGIN}/#author` },
-        about: [
-          "DeepSeek Harness",
-          "Cordis",
-          "agent runtime",
-          "plugin architecture",
-        ],
+        about: ["DeepSeek Harness", "Cordis", "agent runtime", "plugin architecture"],
         citation: SOURCE_REPO,
         image: `${SITE_ORIGIN}/og.jpg`,
         isBasedOn: SOURCE_REPO,
@@ -200,10 +302,14 @@ export function websiteJsonLd(): { "@context": string; "@graph": Record<string, 
   };
 }
 
-export function webpageJsonLd(path: string, override?: Partial<PageSeo>) {
-  const page = pageSeo(path, override);
-  const url = canonical(page.path);
-  const crumbs = breadcrumbs(page.path);
+export function webpageJsonLd(
+  path: string,
+  override?: Partial<PageSeo>,
+  locale: "zh-CN" | "en" = "zh-CN",
+) {
+  const page = pageSeo(path, override, locale);
+  const url = canonical(page.path, locale);
+  const crumbs = breadcrumbs(page.path, locale);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -211,8 +317,8 @@ export function webpageJsonLd(path: string, override?: Partial<PageSeo>) {
     url,
     name: page.title,
     description: page.description,
-    inLanguage: "zh-CN",
-    isPartOf: { "@id": `${SITE_ORIGIN}/#website` },
+    inLanguage: locale,
+    isPartOf: { "@id": `${canonical("/", locale)}#website` },
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
     breadcrumb: {
@@ -227,16 +333,23 @@ export function webpageJsonLd(path: string, override?: Partial<PageSeo>) {
   };
 }
 
-function breadcrumbs(path: string): { name: string; item: string }[] {
-  const home = { name: SITE_NAME, item: `${SITE_ORIGIN}/` };
+function breadcrumbs(
+  path: string,
+  locale: "zh-CN" | "en" = "zh-CN",
+): { name: string; item: string }[] {
+  const pages = locale === "en" ? PAGE_SEO_EN : PAGE_SEO;
+  const home = { name: locale === "en" ? SITE_NAME_EN : SITE_NAME, item: canonical("/", locale) };
   if (path === "/") return [home];
-  const seo = PAGE_SEO[path];
+  const seo = pages[path];
   if (path.startsWith("/modules/") && path !== "/modules") {
     return [
       home,
-      { name: "模块目录", item: canonical("/modules") },
-      { name: seo?.title ?? path, item: canonical(path) },
+      {
+        name: locale === "en" ? "Module directory" : "模块目录",
+        item: canonical("/modules", locale),
+      },
+      { name: seo?.title ?? path, item: canonical(path, locale) },
     ];
   }
-  return [home, { name: seo?.title.split("·")[0]?.trim() ?? path, item: canonical(path) }];
+  return [home, { name: seo?.title.split("·")[0]?.trim() ?? path, item: canonical(path, locale) }];
 }

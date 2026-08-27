@@ -6,5 +6,8 @@ if curl -sf -o /dev/null --max-time 2 http://127.0.0.1:8080/; then
   exit 0
 fi
 cd "$ROOT"
-npm run dev > /tmp/dsh-brickbook-dev.log 2>&1 &
+if [ "${1:-}" = "--foreground" ]; then
+  exec npm run dev
+fi
+nohup npm run dev > /tmp/dsh-brickbook-dev.log 2>&1 </dev/null &
 exit 0

@@ -3,6 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { AppShell } from "@/components/shell";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
+import { useLocale } from "@/lib/locale";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -28,8 +29,14 @@ export const Route = createRootRoute({
       { rel: "alternate", href: "https://dsh.177.best/llms.txt", type: "text/plain" },
     ],
   }),
-  component: () => (
-    <html lang="zh-CN" className="antialiased" suppressHydrationWarning>
+  component: RootDocument,
+});
+
+function RootDocument() {
+  const locale = useLocale();
+
+  return (
+    <html lang={locale} className="antialiased" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -43,5 +50,5 @@ export const Route = createRootRoute({
         <Scripts />
       </body>
     </html>
-  ),
-});
+  );
+}

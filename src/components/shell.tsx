@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { NAV, navIsActive } from "@/data/nav";
@@ -7,9 +7,16 @@ import { Button } from "@/components/ui/button";
 import { SearchPalette, SearchTrigger } from "@/components/search-palette";
 import { SeoBlock } from "@/components/seo-block";
 import { SiteFooter } from "@/components/site-footer";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { LocaleSuggestion } from "@/components/locale-suggestion";
+import { NAV_EN } from "@/data/en/nav";
+import { useLocale } from "@/lib/locale";
+import { LocalizedLink } from "@/components/localized-link";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const locale = useLocale();
+  const nav = locale === "en" ? NAV_EN : NAV;
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
 
@@ -30,22 +37,42 @@ export function AppShell({ children }: { children: ReactNode }) {
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-fg"
       >
-        跳到正文
+        {locale === "en" ? "Skip to content" : "跳到正文"}
       </a>
       <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur-md lg:hidden">
         <div className="flex h-14 items-center justify-between gap-2 px-4">
-          <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
+          <LocalizedLink
+            to="/"
+            className="flex min-w-0 items-center gap-2.5"
+            onClick={() => setOpen(false)}
+          >
             <Mark />
-            <span className="font-display text-lg tracking-tight">DSH 积木书</span>
-          </Link>
+            <span className="font-display text-lg tracking-tight">
+              {locale === "en" ? "DSH Brickbook" : "DSH 积木书"}
+            </span>
+          </LocalizedLink>
           <div className="flex items-center gap-1">
-            <Button variant="ghost" size="icon" aria-label="搜索" onClick={() => setSearch(true)}>
+            <LanguageSwitcher compact />
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label={locale === "en" ? "Search" : "搜索"}
+              onClick={() => setSearch(true)}
+            >
               <Search className="size-5" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              aria-label={open ? "关闭目录" : "打开目录"}
+              aria-label={
+                locale === "en"
+                  ? open
+                    ? "Close navigation"
+                    : "Open navigation"
+                  : open
+                    ? "关闭目录"
+                    : "打开目录"
+              }
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -54,7 +81,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
         {open ? (
           <nav className="grid gap-1 border-t border-border px-3 py-3">
-            {NAV.map((item) => (
+            {nav.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
@@ -70,18 +97,23 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <div className="mx-auto flex max-w-7xl">
         <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-border px-4 py-8 lg:flex">
-          <Link to="/" className="mb-6 flex items-center gap-2.5">
+          <LocalizedLink to="/" className="mb-6 flex items-center gap-2.5">
             <Mark />
             <div>
-              <p className="font-display text-xl leading-none tracking-tight">DSH 积木书</p>
+              <p className="font-display text-xl leading-none tracking-tight">
+                {locale === "en" ? "DSH Brickbook" : "DSH 积木书"}
+              </p>
               <p className="mt-1 text-xs text-muted">Everything is a Plugin</p>
             </div>
-          </Link>
+          </LocalizedLink>
           <div className="mb-4">
             <SearchTrigger onOpen={() => setSearch(true)} />
           </div>
+          <div className="mb-4">
+            <LanguageSwitcher />
+          </div>
           <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto">
-            {NAV.map((item) => (
+            {nav.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
@@ -92,7 +124,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <p className="mt-6 text-xs leading-relaxed text-subtle">
-            源码分析自 deepseek-ai/deepseek-harness
+            {locale === "en" ? "Source analysis of" : "源码分析自"} deepseek-ai/deepseek-harness
             <br />
             v0.1 developer preview
           </p>
@@ -104,6 +136,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
       </div>
       <SearchPalette open={search} onClose={() => setSearch(false)} />
+      <LocaleSuggestion />
     </div>
   );
 }
@@ -122,7 +155,7 @@ function NavLink({
   onNavigate?: () => void;
 }) {
   return (
-    <Link
+    <LocalizedLink
       to={to}
       onClick={onNavigate}
       className={cn(
@@ -132,7 +165,7 @@ function NavLink({
     >
       <span className="block text-sm font-medium">{label}</span>
       <span className="block text-xs text-subtle">{kid}</span>
-    </Link>
+    </LocalizedLink>
   );
 }
 

@@ -2,6 +2,11 @@ import { GLOSSARY } from "@/data/glossary";
 import { GROUPS } from "@/data/groups";
 import { NAV } from "@/data/nav";
 import { PACKAGES } from "@/data/packages";
+import { GLOSSARY_EN } from "@/data/en/glossary";
+import { groupsEn } from "@/data/en/groups";
+import { NAV_EN } from "@/data/en/nav";
+import { packagesEn } from "@/data/en/packages";
+import type { Locale } from "@/lib/locale";
 
 export type SearchHit = {
   id: string;
@@ -16,8 +21,12 @@ function haystack(parts: Array<string | undefined>) {
   return parts.filter(Boolean).join(" ").toLowerCase();
 }
 
-export function searchIndex(): SearchHit[] {
-  const pages: SearchHit[] = NAV.map((item) => ({
+export function searchIndex(locale: Locale = "zh-CN"): SearchHit[] {
+  const nav = locale === "en" ? NAV_EN : NAV;
+  const sourceGroups = locale === "en" ? groupsEn(GROUPS) : GROUPS;
+  const sourcePackages = locale === "en" ? packagesEn(PACKAGES) : PACKAGES;
+  const glossary = locale === "en" ? GLOSSARY_EN : GLOSSARY;
+  const pages: SearchHit[] = nav.map((item) => ({
     id: `page:${item.to}`,
     kind: "page",
     title: item.label,
@@ -25,7 +34,7 @@ export function searchIndex(): SearchHit[] {
     to: item.to,
   }));
 
-  const groups: SearchHit[] = GROUPS.map((g) => ({
+  const groups: SearchHit[] = sourceGroups.map((g) => ({
     id: `group:${g.slug}`,
     kind: "group",
     title: g.name,
@@ -34,7 +43,7 @@ export function searchIndex(): SearchHit[] {
     slug: g.slug,
   }));
 
-  const pkgs: SearchHit[] = PACKAGES.map((p) => ({
+  const pkgs: SearchHit[] = sourcePackages.map((p) => ({
     id: `pkg:${p.npm}`,
     kind: "package",
     title: p.npm,
@@ -43,7 +52,7 @@ export function searchIndex(): SearchHit[] {
     slug: p.group,
   }));
 
-  const terms: SearchHit[] = GLOSSARY.map((g) => ({
+  const terms: SearchHit[] = glossary.map((g) => ({
     id: `term:${g.term}`,
     kind: "term",
     title: `${g.term} · ${g.cn}`,
@@ -54,14 +63,14 @@ export function searchIndex(): SearchHit[] {
   return [...pages, ...groups, ...pkgs, ...terms];
 }
 
-export function searchHits(query: string, limit = 8): SearchHit[] {
+export function searchHits(query: string, limit = 8, locale: Locale = "zh-CN"): SearchHit[] {
   const needle = query.trim().toLowerCase();
   if (!needle) {
-    return searchIndex()
+    return searchIndex(locale)
       .filter((h) => h.kind === "page")
       .slice(0, limit);
   }
-  const scored = searchIndex()
+  const scored = searchIndex(locale)
     .map((hit) => {
       const blob = haystack([hit.title, hit.hint, hit.slug, hit.to]);
       const idx = blob.indexOf(needle);
@@ -79,4 +88,11 @@ export const KIND_LABEL: Record<SearchHit["kind"], string> = {
   group: "抽屉",
   package: "包",
   term: "词",
+};
+
+export const KIND_LABEL_EN: Record<SearchHit["kind"], string> = {
+  page: "Page",
+  group: "Group",
+  package: "Pkg",
+  term: "Term",
 };
