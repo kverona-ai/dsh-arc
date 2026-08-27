@@ -14,6 +14,7 @@ export function Brick({
   sub,
   tone = "elevated",
   active,
+  compact,
   onClick,
   className,
 }: {
@@ -21,6 +22,8 @@ export function Brick({
   sub?: string;
   tone?: keyof typeof TONES;
   active?: boolean;
+  /** Tightens type for narrow diagram bricks — Latin labels are far wider than CJK ones. */
+  compact?: boolean;
   onClick?: () => void;
   className?: string;
 }) {
@@ -30,19 +33,26 @@ export function Brick({
       type={onClick ? "button" : undefined}
       onClick={onClick}
       className={cn(
-        "relative min-h-11 rounded-md px-3 py-2 text-left transition-[transform,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-out)]",
+        "relative min-h-11 rounded-md py-2 text-left transition-[transform,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-out)]",
+        compact ? "px-2" : "px-3",
         TONES[tone],
         onClick && "hover:-translate-y-0.5",
         active && "ring-2 ring-accent",
         className,
       )}
     >
-      <span className="absolute top-1 left-3 flex gap-1" aria-hidden>
+      <span className={cn("absolute top-1 flex gap-1", compact ? "left-2" : "left-3")} aria-hidden>
         <i className="size-1.5 rounded-full bg-current opacity-40" />
         <i className="size-1.5 rounded-full bg-current opacity-40" />
       </span>
-      <p className="mt-1.5 font-medium leading-tight">{label}</p>
-      {sub ? <p className="mt-0.5 truncate text-xs opacity-70">{sub}</p> : null}
+      <p className={cn("mt-1.5 font-medium leading-tight", compact && "truncate text-xs")}>
+        {label}
+      </p>
+      {sub ? (
+        <p className={cn("mt-0.5 truncate opacity-70", compact ? "text-[0.625rem]" : "text-xs")}>
+          {sub}
+        </p>
+      ) : null}
     </Comp>
   );
 }

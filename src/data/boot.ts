@@ -55,9 +55,9 @@ export const PRESETS = [
   },
   {
     id: "code",
-    name: "Code Mode",
+    name: "PTC 模式",
     kid: "标准套装再加实验室：模型用一段 TypeScript 编排多轮工具。",
-    note: "工具经 Code Mode SDK 暴露，可在一个程序里组合多步操作。",
+    note: "界面已改称 PTC Mode；内部仍以 code preset 与 Code Mode SDK 暴露工具。",
   },
   {
     id: "minimal",

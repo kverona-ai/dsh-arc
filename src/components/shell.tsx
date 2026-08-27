@@ -8,6 +8,9 @@ import { SearchPalette, SearchTrigger } from "@/components/search-palette";
 import { SeoBlock } from "@/components/seo-block";
 import { SiteFooter } from "@/components/site-footer";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { CreatorCard } from "@/components/creator-card";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import { HARNESS_RELEASE } from "@/data/release";
 import { LocaleSuggestion } from "@/components/locale-suggestion";
 import { NAV_EN } from "@/data/en/nav";
 import { useLocale } from "@/lib/locale";
@@ -52,6 +55,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </span>
           </LocalizedLink>
           <div className="flex items-center gap-1">
+            <ThemeSwitcher compact />
             <LanguageSwitcher compact />
             <Button
               variant="ghost"
@@ -81,6 +85,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
         {open ? (
           <nav className="grid gap-1 border-t border-border px-3 py-3">
+            <CreatorCard className="mb-2" />
             {nav.map((item) => (
               <NavLink
                 key={item.to}
@@ -97,7 +102,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <div className="mx-auto flex max-w-7xl">
         <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-border px-4 py-8 lg:flex">
-          <LocalizedLink to="/" className="mb-6 flex items-center gap-2.5">
+          <LocalizedLink to="/" className="mb-3 flex items-center gap-2.5">
             <Mark />
             <div>
               <p className="font-display text-xl leading-none tracking-tight">
@@ -106,11 +111,13 @@ export function AppShell({ children }: { children: ReactNode }) {
               <p className="mt-1 text-xs text-muted">Everything is a Plugin</p>
             </div>
           </LocalizedLink>
+          <CreatorCard className="mb-5" />
           <div className="mb-4">
             <SearchTrigger onOpen={() => setSearch(true)} />
           </div>
-          <div className="mb-4">
-            <LanguageSwitcher />
+          <div className="mb-4 grid grid-cols-2 gap-2">
+            <ThemeSwitcher />
+            <LanguageSwitcher compact />
           </div>
           <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto">
             {nav.map((item) => (
@@ -126,7 +133,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <p className="mt-6 text-xs leading-relaxed text-subtle">
             {locale === "en" ? "Source analysis of" : "源码分析自"} deepseek-ai/deepseek-harness
             <br />
-            v0.1 developer preview
+            {HARNESS_RELEASE.tag} · {HARNESS_RELEASE.packageCount} packages
           </p>
         </aside>
         <div id="main" className="min-w-0 flex-1">

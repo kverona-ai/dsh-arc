@@ -20,7 +20,7 @@ export function StoryPage() {
   return (
     <Page
       kicker={en ? "Picture book" : "图画书"}
-      title={en ? "A whole city in seven pages" : "七页故事，讲完一座城"}
+      title={en ? "A whole city in eight pages" : "八页故事，讲完一座城"}
       lead={
         en
           ? "Hear it once like a five-year-old. The real source names are tucked under every page."

@@ -42,6 +42,7 @@ export const EVENT_DOMAINS_EN = [
       { name: "tools/execute", note: "wrap the tool function with timeouts or metrics" },
       { name: "tools/post-execute", note: "accept / replace / block" },
       { name: "fs/write-intent · fs/edit-intent", note: "observe before writes" },
+      { name: "fs/observed", note: "emit: synchronous bookkeeping after a read or write succeeds" },
       { name: "system-prompt/assemble", note: "final prompt assembly" },
     ],
   },

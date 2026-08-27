@@ -1,12 +1,13 @@
 # DSH Brickbook / DSH 积木书
 
-> A bilingual DeepSeek Harness (dsh) architecture explainer with plain-language stories and real package names. Source-level reading of the developer preview: Everything is a plugin. Every run is traceable.
+> A bilingual source-level explainer of DeepSeek Harness dsh-v0.1.1-rc.2, with plain-language stories and real package names. Everything is a plugin. Every run is traceable.
 
 This site is an unofficial picture-book of https://github.com/deepseek-ai/deepseek-harness
 Live: https://dsh.177.best
 English: https://dsh.177.best/en
 Repo: https://github.com/kverona-ai/dsh-arc
-Author: wangxy
+Author: @willzero — https://x.com/willzero
+Source snapshot: dsh-v0.1.1-rc.2, commit b150a55, released 2026-08-21; 227 package manifests under packages/.
 
 ## Two laws
 
@@ -18,11 +19,12 @@ Author: wangxy
 - Cordis `inject` (wait for services) ≠ `Agent.inject()` (inbox next-step, no wake)
 - `ctx.sandbox.confine` (local baby-gate) ≠ E2B (move fs+subprocess to another execution world)
 - `scope` (per-agent locker) ≠ `isolate` (another copy of a named service)
+- an image in the log (only an `ImageAttachmentRef`) ≠ the image bytes (content-addressed in the attachment store)
 
 ## Pages
 
 - [Cover](https://dsh.177.best/en): ten-layer city and reading order
-- [Story](https://dsh.177.best/en/story): seven-page primer
+- [Story](https://dsh.177.best/en/story): eight-page primer
 - [Principles](https://dsh.177.best/en/principles): two laws, four presets, where new behavior hangs
 - [Map](https://dsh.177.best/en/map): module layers, Host vs Client
 - [Cordis](https://dsh.177.best/en/cordis): plugins, Context, waterfall, reversible effects
@@ -32,7 +34,7 @@ Author: wangxy
 - [Events](https://dsh.177.best/en/events): session vs agent vs capability events
 - [Modules](https://dsh.177.best/en/modules): package catalog
 - [Glossary](https://dsh.177.best/en/glossary): term map
-- [FAQ](https://dsh.177.best/en/faq): eight questions with source-accurate answers
+- [FAQ](https://dsh.177.best/en/faq): ten questions with source-accurate answers
 
 ## Optional
 

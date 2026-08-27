@@ -1,5 +1,9 @@
 export const FAQS = [
   {
+    q: "这本积木书对应哪个 DeepSeek Harness 版本？",
+    a: "当前内容已对齐官方 dsh-v0.1.1-rc.2（提交 b150a55，发布于 2026-08-21）。该源码快照包含 227 个 packages/*/package.json；目录页精编主干与代表性插件，而不是把 227 个包逐一平铺。",
+  },
+  {
     q: "DeepSeek Harness 是什么？",
     a: "DeepSeek Harness（dsh）是开源 agent 运行时。它不把模型写死在内核里：模型适配器、工具、会话、沙箱、循环和 UI 全部是插件。核心口号是 Everything is a plugin，以及 Every run is traceable。",
   },
@@ -30,5 +34,9 @@ export const FAQS = [
   {
     q: "一轮对话（turn）和一步（step）怎么分？",
     a: "一步是一次模型请求加上它调用的工具。一轮包含零个或多个步骤：领取首条输入前打开，不再欠工作时关闭。被拒绝的首次领取仍会留下一个不含步骤的耐久轮次。",
+  },
+  {
+    q: "dsh 能读图片吗？图片会写进会话日志吗？",
+    a: "能，但日志里只写引用。ctx.attachments.saveImage 先做准入校验与归一化，再按内容寻址提交，返回 ImageAttachmentRef；base64、浏览器路径、提供方 URL 都不进 SessionEvent。tool-fs 的 read_image 只在挂载耐久附件存储时注册，且路由模型必须声明 image 输入；dsh-llm-deepseek 再把引用解析成 Files API 文件 id，解析失败就整条请求回落成 inline data URL。",
   },
 ] as const;

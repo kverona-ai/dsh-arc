@@ -4,6 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { AppShell } from "@/components/shell";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import { useLocale } from "@/lib/locale";
+import { THEME_BOOT_SCRIPT, THEME_COLOR } from "@/lib/theme";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -13,7 +14,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: SITE_NAME },
       { name: "description", content: SITE_DESCRIPTION },
-      { name: "theme-color", content: "#08090c" },
+      { name: "theme-color", content: THEME_COLOR.dark },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -39,6 +40,8 @@ function RootDocument() {
     <html lang={locale} className="antialiased" suppressHydrationWarning>
       <head>
         <HeadContent />
+        {/* Runs before first paint so the stored theme wins over the dark default. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
       </head>
       <body>
         <PreviewHostBridge />

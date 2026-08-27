@@ -12,6 +12,7 @@ import { LAYERS_EN } from "@/data/en/groups";
 import { NAV_EN } from "@/data/en/nav";
 import { LocalizedLink } from "@/components/localized-link";
 import { useLocale } from "@/lib/locale";
+import { ReleaseUpdate } from "@/components/release-update";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -77,6 +78,8 @@ export function HomePage() {
           </>
         )}
       </KidNote>
+
+      <ReleaseUpdate en={en} />
 
       <section className="mt-16">
         <div className="mb-6 flex items-end justify-between gap-4">
@@ -202,28 +205,28 @@ function HeroCity({ en }: { en: boolean }) {
       </p>
       <div className="grid gap-2">
         <div className="grid grid-cols-3 gap-2">
-          <Brick label={en ? "Window" : "窗户"} sub="client ui-*" tone="fg" />
-          <Brick label={en ? "Mailbox" : "信箱"} sub="webserver" tone="fg" />
-          <Brick label={en ? "Reception" : "接待"} sub="apiproxy" tone="fg" />
+          <Brick label={en ? "Window" : "窗户"} sub="client ui-*" compact={en} tone="fg" />
+          <Brick label={en ? "Mailbox" : "信箱"} sub="webserver" compact={en} tone="fg" />
+          <Brick label={en ? "Reception" : "接待"} sub="apiproxy" compact={en} tone="fg" />
         </div>
         <div className="grid grid-cols-4 gap-2">
-          <Brick label={en ? "Skills" : "技能"} sub="skill" tone="elevated" />
-          <Brick label={en ? "Plan" : "计划"} sub="plan" tone="elevated" />
-          <Brick label={en ? "Helpers" : "帮手"} sub="subagent" tone="elevated" />
-          <Brick label={en ? "To-do" : "待办"} sub="todo" tone="elevated" />
+          <Brick label={en ? "Skills" : "技能"} sub="skill" compact={en} tone="elevated" />
+          <Brick label={en ? "Plan" : "计划"} sub="plan" compact={en} tone="elevated" />
+          <Brick label={en ? "Helpers" : "帮手"} sub="subagent" compact={en} tone="elevated" />
+          <Brick label={en ? "To-do" : "待办"} sub="todo" compact={en} tone="elevated" />
         </div>
         <div className="grid grid-cols-5 gap-2">
-          <Brick label={en ? "Paper" : "纸笔"} sub="fs" tone="ok" />
-          <Brick label={en ? "Runner" : "跑腿"} sub="spawn" tone="ok" />
-          <Brick label={en ? "Fence" : "围栏"} sub="box" tone="warn" />
-          <Brick label={en ? "Voice" : "嘴巴"} sub="shell" tone="ok" />
-          <Brick label={en ? "LSP" : "眼镜"} sub="code map" tone="ok" />
+          <Brick label={en ? "Paper" : "纸笔"} sub="fs" compact={en} tone="ok" />
+          <Brick label={en ? "Runner" : "跑腿"} sub="spawn" compact={en} tone="ok" />
+          <Brick label={en ? "Fence" : "围栏"} sub="box" compact={en} tone="warn" />
+          <Brick label={en ? "Voice" : "嘴巴"} sub="shell" compact={en} tone="ok" />
+          <Brick label={en ? "LSP" : "眼镜"} sub="code map" compact={en} tone="ok" />
         </div>
         <div className="grid grid-cols-4 gap-2">
-          <Brick label={en ? "Journal" : "日记"} sub="session" tone="accent" />
-          <Brick label={en ? "Heartbeat" : "心跳"} sub="loop" tone="accent" />
-          <Brick label={en ? "Tools" : "工具柜"} sub="tools" tone="accent" />
-          <Brick label={en ? "Brain" : "脑子"} sub="llm" tone="accent" />
+          <Brick label={en ? "Journal" : "日记"} sub="session" compact={en} tone="accent" />
+          <Brick label={en ? "Heartbeat" : "心跳"} sub="loop" compact={en} tone="accent" />
+          <Brick label={en ? "Tools" : "工具柜"} sub="tools" compact={en} tone="accent" />
+          <Brick label={en ? "Brain" : "脑子"} sub="llm" compact={en} tone="accent" />
         </div>
         <Brick
           label={

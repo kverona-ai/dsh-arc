@@ -42,6 +42,7 @@ export const EVENT_DOMAINS = [
       { name: "tools/execute", note: "包住工具函数（超时、指标）" },
       { name: "tools/post-execute", note: "accept / replace / block" },
       { name: "fs/write-intent · fs/edit-intent", note: "写前观察策略" },
+      { name: "fs/observed", note: "emit：读写成功之后同步记账" },
       { name: "system-prompt/assemble", note: "提示词最后组装" },
     ],
   },

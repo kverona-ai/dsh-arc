@@ -174,4 +174,11 @@ export const GLOSSARY_EN = [
     tech: "compaction uses token-meter pressure to trigger summaries; spill moves oversized tool results out of line. replace removes nodes hidden by its shadow.",
     href: "/modules/compaction",
   },
+  {
+    term: "ImageAttachmentRef",
+    cn: "Drawer number for a photo",
+    kid: "The journal never holds the photo, only the line saying which drawer it went into.",
+    tech: "The serializable reference returned by ctx.attachments.saveImage after it normalizes and content-addresses an image. SessionEvents carry the reference only; base64, browser paths, and provider URLs never reach the log. read_image requires a mounted durable store and a routed model that declares image input.",
+    href: "/modules/attachment",
+  },
 ] as const;

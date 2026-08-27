@@ -79,9 +79,9 @@ export const PRESETS_EN = [
   },
   {
     id: "code",
-    name: "Code Mode",
+    name: "PTC Mode",
     kid: "The standard kit plus a lab where TypeScript orchestrates multiple tool rounds.",
-    note: "The Code Mode SDK exposes tools for multi-step programs.",
+    note: "The UI label is now PTC Mode; the internal code preset and Code Mode SDK names remain.",
   },
   {
     id: "minimal",

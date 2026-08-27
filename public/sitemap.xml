@@ -1,447 +1,1119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dsh.177.best/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/story</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/story"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/story"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/story"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/principles</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/principles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/principles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/principles"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/map</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/map"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/map"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/map"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/cordis</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/cordis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/cordis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/cordis"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/boot</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/boot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/boot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/boot"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/loop</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/loop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/loop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/loop"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/seams</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/seams"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/seams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/seams"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/events</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/events"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/events"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/glossary</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/glossary"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/glossary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/glossary"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/faq</loc>
-    <lastmod>2026-08-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/faq"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/vendor</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/vendor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/vendor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/vendor"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/boot</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/boot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/boot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/boot"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/bundle</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/bundle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/bundle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/bundle"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/core</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/core"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/core"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/core"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/llm</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/llm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/llm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/llm"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/fs</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/fs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/fs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/fs"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/subprocess</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/subprocess"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/subprocess"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/subprocess"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/sandbox</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/sandbox"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/sandbox"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/sandbox"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/shell</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/shell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/shell"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/shell"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/terminal</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/terminal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/terminal"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/lsp</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/lsp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/lsp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/lsp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/code-runtime</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/code-runtime"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/code-runtime"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/code-runtime"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/session</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/session"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/session"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/session"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/session-query</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/session-query"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/session-query"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/session-query"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/storage</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/storage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/storage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/storage"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/attachment</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/attachment"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/attachment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/attachment"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/compaction</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/compaction"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/compaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/compaction"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/spill</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/spill"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/spill"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/spill"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/skill</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/skill"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/skill"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/skill"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/plan</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/plan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/plan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/plan"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/goal</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/goal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/goal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/goal"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/jobs</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/jobs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/jobs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/jobs"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/workflow</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/workflow"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/workflow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/workflow"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/subagent</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/subagent"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/subagent"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/subagent"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/web</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/web"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/web"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/mcp</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/mcp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/mcp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/todo</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/todo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/todo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/todo"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/extensions</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/extensions"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/extensions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/extensions"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/host</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/host"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/host"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/host"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/client</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/client"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/client"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/client"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/interaction</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/interaction"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/interaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/interaction"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/credentials</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/credentials"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/credentials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/credentials"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/settings</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/settings"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/settings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/settings"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/guard</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/guard"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/guard"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/guard"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/hooks</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/hooks"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/hooks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/hooks"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/identity</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/identity"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/identity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/identity"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/feedback</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/feedback"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/feedback"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/feedback"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/workspace</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/workspace"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/workspace"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/workspace"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/preset</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/preset"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/preset"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/preset"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/context</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/context"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/api</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/api"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/api"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/api"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/typert</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/typert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/typert"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/typert"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/sdk</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/sdk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/sdk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/sdk"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/acp</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/acp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/acp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/acp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/schedule</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/schedule"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/schedule"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/schedule"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/e2b</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/e2b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/e2b"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/e2b"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/experimental</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/experimental"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/experimental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/experimental"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/runtime-diagnostics</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/runtime-diagnostics"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/runtime-diagnostics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/runtime-diagnostics"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/util</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/util"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/util"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/util"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/modules/test-support</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/test-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/test-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/test-support"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/story</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/story"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/story"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/story"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/principles</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/principles"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/principles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/principles"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/map</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/map"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/map"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/map"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/cordis</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/cordis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/cordis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/cordis"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/boot</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/boot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/boot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/boot"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/loop</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/loop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/loop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/loop"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/seams</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/seams"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/seams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/seams"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/events</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/events"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/events"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/modules</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/glossary</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/glossary"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/glossary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/glossary"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dsh.177.best/en/faq</loc>
-    <lastmod>2026-08-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/faq"/>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/vendor</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/vendor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/vendor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/vendor"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/boot</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/boot"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/boot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/boot"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/bundle</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/bundle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/bundle"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/bundle"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/core</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/core"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/core"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/core"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/llm</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/llm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/llm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/llm"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/fs</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/fs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/fs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/fs"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/subprocess</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/subprocess"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/subprocess"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/subprocess"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/sandbox</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/sandbox"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/sandbox"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/sandbox"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/shell</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/shell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/shell"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/shell"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/terminal</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/terminal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/terminal"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/lsp</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/lsp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/lsp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/lsp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/code-runtime</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/code-runtime"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/code-runtime"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/code-runtime"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/session</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/session"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/session"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/session"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/session-query</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/session-query"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/session-query"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/session-query"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/storage</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/storage"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/storage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/storage"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/attachment</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/attachment"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/attachment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/attachment"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/compaction</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/compaction"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/compaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/compaction"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/spill</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/spill"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/spill"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/spill"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/skill</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/skill"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/skill"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/skill"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/plan</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/plan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/plan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/plan"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/goal</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/goal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/goal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/goal"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/jobs</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/jobs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/jobs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/jobs"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/workflow</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/workflow"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/workflow"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/workflow"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/subagent</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/subagent"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/subagent"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/subagent"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/web</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/web"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/web"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/mcp</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/mcp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/mcp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/mcp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/todo</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/todo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/todo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/todo"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/extensions</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/extensions"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/extensions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/extensions"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/host</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/host"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/host"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/host"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/client</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/client"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/client"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/client"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/interaction</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/interaction"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/interaction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/interaction"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/credentials</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/credentials"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/credentials"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/credentials"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/settings</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/settings"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/settings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/settings"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/guard</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/guard"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/guard"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/guard"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/hooks</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/hooks"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/hooks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/hooks"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/identity</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/identity"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/identity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/identity"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/feedback</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/feedback"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/feedback"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/feedback"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/workspace</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/workspace"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/workspace"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/workspace"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/preset</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/preset"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/preset"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/preset"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/context</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/context"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/api</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/api"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/api"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/api"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/typert</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/typert"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/typert"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/typert"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/sdk</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/sdk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/sdk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/sdk"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/acp</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/acp"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/acp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/acp"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/schedule</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/schedule"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/schedule"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/schedule"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/e2b</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/e2b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/e2b"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/e2b"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/experimental</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/experimental"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/experimental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/experimental"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/runtime-diagnostics</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/runtime-diagnostics"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/runtime-diagnostics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/runtime-diagnostics"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/util</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/util"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/util"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/util"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dsh.177.best/en/modules/test-support</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dsh.177.best/modules/test-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dsh.177.best/en/modules/test-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dsh.177.best/modules/test-support"/>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

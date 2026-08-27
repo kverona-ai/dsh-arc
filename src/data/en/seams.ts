@@ -121,6 +121,22 @@ export const SEAMS_EN: SeamExample[] = [
     swapStory:
       "There is no parallel persistence type. Crash recovery adds interrupted to an unclosed turn without truncating the log.",
   },
+  {
+    slug: "attachments",
+    ctx: "ctx.attachments",
+    name: "File the photo by its fingerprint",
+    kid: "A picture never goes into the journal; the journal only notes which drawer holds it.",
+    definition: "@deepseek-ai/dsh-attachment · ImageAttachmentRef",
+    providers: [
+      { pkg: "dsh-attachment-local", note: "Private content-addressed store under DSH_HOME" },
+    ],
+    consumers: [
+      { pkg: "dsh-tool-fs", note: "read_image commits before returning the image block" },
+      { pkg: "dsh-llm-deepseek", note: "Resolves references into Files API ids" },
+    ],
+    swapStory:
+      "saveImage commits before any model-visible event is appended, so the log holds references only — never base64, browser paths, or provider URLs. read_image registers only while a durable store is mounted, and refuses at execution unless the routed model declares image input.",
+  },
 ];
 
 export const SEAM_RULES_EN = [

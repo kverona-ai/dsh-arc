@@ -22,9 +22,9 @@ export const RUNTIME_MODES_EN = [
   },
   {
     id: "code",
-    name: "Code Mode",
+    name: "PTC Mode",
     kid: "The standard kit plus a lab where TypeScript can orchestrate many operations together.",
-    note: "Tools are exposed through the Code Mode SDK so a program can combine multi-step operations.",
+    note: "The UI label is now PTC Mode; the internal code preset and Code Mode SDK names remain.",
   },
   {
     id: "minimal",

@@ -1,5 +1,9 @@
 export const FAQS_EN = [
   {
+    q: "Which DeepSeek Harness version does this Brickbook cover?",
+    a: "The content is aligned with the official dsh-v0.1.1-rc.2 release at commit b150a55, published on 2026-08-21. That source snapshot contains 227 packages/*/package.json manifests; the directory curates the core and representative plugins instead of flattening all 227 into one list.",
+  },
+  {
     q: "What is DeepSeek Harness?",
     a: "DeepSeek Harness (dsh) is an open-source agent runtime. It does not hard-code a model into its core: model adapters, tools, sessions, sandboxes, loops, and UI are all plugins. Its two central ideas are Everything is a plugin and Every run is traceable.",
   },
@@ -30,5 +34,9 @@ export const FAQS_EN = [
   {
     q: "How do a turn and a step differ?",
     a: "A step is one model request plus the tools it calls. A turn contains zero or more steps: it opens before the first input is claimed and closes when no work remains. Even a rejected first claim leaves a durable zero-step turn.",
+  },
+  {
+    q: "Can dsh read images, and do images land in the session log?",
+    a: "Yes, but the log stores only a reference. ctx.attachments.saveImage validates and normalizes the image, commits it content-addressed, and returns an ImageAttachmentRef; base64, browser paths, and provider URLs never reach a SessionEvent. tool-fs registers read_image only while a durable attachment store is mounted, and the routed model must declare image input; dsh-llm-deepseek then resolves each reference into a Files API id and falls back to inline data URLs for the whole request when resolution fails.",
   },
 ] as const;

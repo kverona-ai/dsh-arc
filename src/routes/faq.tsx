@@ -17,7 +17,7 @@ export function FaqPage() {
   return (
     <Page
       kicker="FAQ"
-      title={en ? "Start with these eight questions" : "先问这八句"}
+      title={en ? "Start with these ten questions" : "先问这十句"}
       lead={
         en
           ? "A compact starting point for readers and generative search. Every answer uses the same source-level names as the rest of the Brickbook."

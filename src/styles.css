@@ -38,6 +38,29 @@
   --motion-slow: 400ms;
 }
 
+/* Warm light theme — Claude-style ivory paper with a book-cloth accent. */
+html[data-theme="light"] {
+  --color-bg: #faf9f5;
+  --color-surface: #f2efe6;
+  --color-elevated: #eae5d9;
+  --color-ink: #e0d9c9;
+  --color-fg: #1f1e1b;
+  --color-muted: #6a655b;
+  --color-subtle: #8d8779;
+  --color-accent: #b2542f;
+  --color-accent-dim: #cf8c6c;
+  --color-accent-fg: #fdfbf7;
+  --color-border: color-mix(in oklab, #4a3f31 14%, transparent);
+  --color-border-strong: color-mix(in oklab, #4a3f31 26%, transparent);
+  --color-warn: #9a6b2f;
+  --color-ok: #3f7355;
+  --color-danger: #a44a3f;
+  --shadow-border: 0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent),
+    0 1px 2px rgb(74 63 49 / 0.05);
+  --shadow-lift: 0 0 0 1px color-mix(in oklab, #4a3f31 12%, transparent),
+    0 18px 40px -24px rgb(74 63 49 / 0.35);
+}
+
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
@@ -54,6 +77,9 @@
       radial-gradient(900px 600px at 110% 0%, color-mix(in oklab, var(--color-accent) 5%, transparent), transparent 55%),
       var(--color-bg);
     color: var(--color-fg);
+    transition:
+      background-color var(--motion-fast) var(--ease-out),
+      color var(--motion-fast) var(--ease-out);
   }
 
   button:not(:disabled),

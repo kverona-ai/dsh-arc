@@ -7,11 +7,11 @@ DeepSeek Harness 架构解析站。用积木城的比喻把 Cordis、插件树�
 - **Everything is a plugin** — 模型、工具、会话、沙箱、循环、UI 都是可替换插件。
 - **Every run is traceable** — 模型看见的，一定已经写进仅追加的会话日志。
 
-源码依据：[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) v0.1 developer preview。
+源码依据：[deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) `dsh-v0.1.1-rc.2`（提交 `b150a55`，2026-08-21 发布）。
 
 ## 章节
 
-1. 积木故事 — 七页讲完一座城
+1. 积木故事 — 八页讲完一座城
 2. 两条铁律 — 插件可换、日记不撒谎，以及新行为往哪挂
 3. 总图 — 十层积木城
 4. Cordis 底板 — 插件、上下文、事件、可逆副作用
@@ -22,4 +22,33 @@ DeepSeek Harness 架构解析站。用积木城的比喻把 Cordis、插件树�
 9. 模块目录 — 主干包与抽屉
 10. 词汇表 — 源码真名字对照
 
-站内搜索：`⌘K` / `Ctrl+K`。
+## 阅读体验
+
+- 中英双语：`/` 是中文，`/en` 是英文，页面级 canonical 与 hreflang 一一对应。
+- 深浅色主题：右上角一键切换，浅色是暖光纸感配色，选择存在 `localStorage`，首次访问跟随系统。
+- 站内搜索：`⌘K` / `Ctrl+K`。
+
+## SEO / GEO
+
+面向搜索引擎与生成式回答引擎的产物都在 `public/`：
+
+- `sitemap.xml` — 双语 124 条 URL，带 hreflang 交叉引用，由 `npm run sitemap` 从 `src/data/groups.ts` 生成。
+- `robots.txt` — 显式放行 Googlebot 与主流 AI 抓取器。
+- `llms.txt` / `llms-full.txt` — 给模型检索用的站点索引与可引用摘要。
+- 结构化数据 — 每页 `WebSite` / `Person` / `SoftwareSourceCode` / `TechArticle` / `WebPage`；FAQ 页加 `FAQPage`，词汇表加 `DefinedTermSet`，目录、接头、故事页加 `ItemList`。
+
+## 本地开发
+
+```bash
+npm run dev        # http://localhost:8080
+npm run typecheck
+npm run lint
+npm run build
+npm run sitemap    # 重新生成 public/sitemap.xml
+```
+
+## 链接
+
+- 作者：[X @willzero](https://x.com/willzero)
+- 在线站点：[dsh.177.best](https://dsh.177.best)
+- GitHub 仓库：[kverona-ai/dsh-arc](https://github.com/kverona-ai/dsh-arc)

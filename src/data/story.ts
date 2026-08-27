@@ -41,4 +41,10 @@ export const STORY_CHAPTERS = [
     kid: "网页不是另外一栋楼。屋子里有一个哑巴信箱（webserver），一个接待员（apiproxy），浏览器再按目录自己拼一座小 Cordis 城。聊天框、侧栏、设置，都是往毡板上按图片。",
     tech: "Host 跑 Node；Client 在浏览器另起 Loader。dsh.client 声明组成 __DSH_BOOT__。Slot 是 UI 组合点。Native 能力仅 loopback。",
   },
+  {
+    n: "08",
+    title: "照片也要先进抽屉",
+    kid: "机器人现在也会看图了。可图片不会直接贴进日记本——先按指纹收进抽屉，日记上只留一张写着编号的纸条。下次再提起同一张图，管家不重新洗一遍，直接把抽屉里的那张拿出来。",
+    tech: "ctx.attachments 是耐久附件 seam：saveImage 先做准入校验与归一化，再内容寻址落盘，返回可序列化的 ImageAttachmentRef。SessionEvent 只写引用，不写 base64、浏览器路径或提供方 URL。tool-fs 的 read_image 只在挂载了耐久存储时注册；dsh-llm-deepseek 再把引用解析成 Files API 文件 id，解析失败就整条请求回落成 inline data URL。",
+  },
 ] as const;

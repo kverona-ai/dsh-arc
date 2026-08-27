@@ -10,6 +10,7 @@ import { groupsEn, LAYERS_EN } from "@/data/en/groups";
 import { packagesEn, ROLE_LABEL_EN } from "@/data/en/packages";
 import { useLocale } from "@/lib/locale";
 import { LocalizedLink } from "@/components/localized-link";
+import { HARNESS_RELEASE } from "@/data/release";
 
 export const Route = createFileRoute("/modules/")({
   component: ModulesPage,
@@ -48,8 +49,8 @@ export function ModulesPage() {
       title={en ? "Every brick has a drawer" : "每一块积木都有抽屉"}
       lead={
         en
-          ? "The repository contains about 227 packages. This directory covers the core and representative plugins. Open a group to see its relationships."
-          : "仓库约 227 个包。这里收录主干与代表性插件。点组名进入该组的关系说明。"
+          ? `The official ${HARNESS_RELEASE.version} source contains ${HARNESS_RELEASE.packageCount} package manifests. This curated directory covers the core and representative plugins; open a group to see its relationships.`
+          : `官方 ${HARNESS_RELEASE.version} 源码包含 ${HARNESS_RELEASE.packageCount} 个包清单。这里精编主干与代表性插件；点组名进入该组的关系说明。`
       }
     >
       <KidNote className="mb-8 max-w-3xl">

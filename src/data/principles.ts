@@ -22,9 +22,9 @@ export const RUNTIME_MODES = [
   },
   {
     id: "code",
-    name: "Code Mode",
+    name: "PTC 模式",
     kid: "标准套装再加实验室：让模型用一段 TypeScript 把好多步活编排在一起。",
-    note: "工具经 Code Mode SDK 暴露，模型可在一个程序里组合多轮操作。",
+    note: "界面已改称 PTC Mode；内部仍以 code preset 与 Code Mode SDK 组合多轮操作。",
   },
   {
     id: "minimal",

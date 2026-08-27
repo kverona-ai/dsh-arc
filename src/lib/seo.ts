@@ -1,16 +1,21 @@
+import { HARNESS_RELEASE } from "@/data/release";
+
 export const SITE_ORIGIN = "https://dsh.177.best";
 export const SITE_NAME = "DSH 积木书";
 export const SITE_NAME_EN = "DSH Brickbook";
 export const SITE_TAGLINE = "Everything is a Plugin";
-export const SITE_AUTHOR = "wangxy";
+export const SITE_AUTHOR = "willzero";
+export const AUTHOR_X = "https://x.com/willzero";
+export const AUTHOR_AVATAR = "/avatar-willzero.jpg";
+export const AUTHOR_GITHUB = "https://github.com/kverona-ai";
 export const SITE_DESCRIPTION =
-  "DeepSeek Harness（dsh）架构图解：Everything is a plugin，Every run is traceable。Cordis 底板、会话日志、能力 seam，小孩版与源码对照。";
+  `DeepSeek Harness ${HARNESS_RELEASE.version} 架构图解：Cordis 插件底板、仅追加会话日志、能力 seam 与 ${HARNESS_RELEASE.packageCount} 个源码包，小孩版与源码对照。`;
 export const SITE_DESCRIPTION_EN =
-  "A source-level explainer of DeepSeek Harness: Cordis plugin architecture, append-only session logs, and capability seams, with plain-language stories and real package names.";
+  `A source-level guide to DeepSeek Harness ${HARNESS_RELEASE.version}: Cordis plugins, append-only Session logs, capability seams, and ${HARNESS_RELEASE.packageCount} source packages.`;
 export const SOURCE_REPO = "https://github.com/deepseek-ai/deepseek-harness";
 export const SITE_REPO = "https://github.com/kverona-ai/dsh-arc";
 export const DATE_PUBLISHED = "2026-08-23";
-export const DATE_MODIFIED = "2026-08-27";
+export const DATE_MODIFIED = "2026-08-28";
 
 export type PageSeo = {
   path: string;
@@ -27,7 +32,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
   "/story": {
     path: "/story",
-    title: "七页故事讲完 dsh · DeepSeek Harness 入门",
+    title: "八页故事讲完 dsh · DeepSeek Harness 入门",
     description:
       "DeepSeek Harness 是什么？Cordis 底板、profile 玩具盒、会话日记、一轮对话、可换接头、Host 与 Client。五岁能听懂的架构故事。",
   },
@@ -75,9 +80,9 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
   "/modules": {
     path: "/modules",
-    title: "DeepSeek Harness 模块目录 · 227 个包怎么放",
+    title: `DeepSeek Harness ${HARNESS_RELEASE.version} 模块目录 · ${HARNESS_RELEASE.packageCount} 个包怎么放`,
     description:
-      "dsh 主干包目录：agent-loop、session、llm、fs、sandbox、subagent、host/client。按抽屉检索 npm 包与 ctx 键。",
+      `官方 ${HARNESS_RELEASE.version} 的 ${HARNESS_RELEASE.packageCount} 个包清单与精编目录：agent-loop、session、llm、fs、sandbox、subagent、host/client。`,
   },
   "/glossary": {
     path: "/glossary",
@@ -150,9 +155,9 @@ export const PAGE_SEO_EN: Record<string, PageSeo> = {
   },
   "/modules": {
     path: "/modules",
-    title: "DeepSeek Harness Module Directory · DSH Brickbook",
+    title: `DeepSeek Harness ${HARNESS_RELEASE.version} Module Directory · DSH Brickbook`,
     description:
-      "Browse representative packages across the agent loop, Session, LLM, filesystem, sandbox, subagents, and Host/Client layers.",
+      `Explore the ${HARNESS_RELEASE.packageCount} package manifests in ${HARNESS_RELEASE.version}, with a curated directory across the agent loop, Session, LLM, sandbox, subagents, and Host/Client layers.`,
   },
   "/glossary": {
     path: "/glossary",
@@ -217,33 +222,59 @@ export function seoHead(
   const url = canonical(page.path, locale);
   const image = `${SITE_ORIGIN}/og.jpg`;
   const siteName = locale === "en" ? SITE_NAME_EN : SITE_NAME;
+  const keywords =
+    locale === "en"
+      ? "DeepSeek Harness, dsh, Cordis, agent runtime, plugin architecture, SessionEvent, capability seam, subagents, AI agents"
+      : "DeepSeek Harness, dsh, Cordis, 智能体运行时, 插件架构, 会话日志, 能力接头, 子智能体, AI Agent";
+  const imageAlt =
+    locale === "en"
+      ? "DSH Brickbook — the ten-layer DeepSeek Harness brick city"
+      : "DSH 积木书 — DeepSeek Harness 十层积木城";
+  // Only the cover is the site itself; every other page is a dated article for
+  // crawlers and answer engines that rank on freshness.
+  const isArticle = page.path !== "/";
   return {
     meta: [
       { title: page.title },
       { name: "description", content: page.description },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "author", content: SITE_AUTHOR },
+      { name: "creator", content: `@${SITE_AUTHOR}` },
+      { name: "keywords", content: keywords },
       { name: "application-name", content: siteName },
       { property: "og:locale", content: locale === "en" ? "en_US" : "zh_CN" },
       { property: "og:locale:alternate", content: locale === "en" ? "zh_CN" : "en_US" },
       { property: "og:site_name", content: siteName },
-      { property: "og:type", content: "website" },
+      { property: "og:type", content: isArticle ? "article" : "website" },
       { property: "og:title", content: page.title },
       { property: "og:description", content: page.description },
       { property: "og:url", content: url },
       { property: "og:image", content: image },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: imageAlt },
+      ...(isArticle
+        ? [
+            { property: "article:author", content: AUTHOR_X },
+            { property: "article:published_time", content: DATE_PUBLISHED },
+            { property: "article:modified_time", content: DATE_MODIFIED },
+          ]
+        : []),
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: `@${SITE_AUTHOR}` },
+      { name: "twitter:creator", content: `@${SITE_AUTHOR}` },
       { name: "twitter:title", content: page.title },
       { name: "twitter:description", content: page.description },
       { name: "twitter:image", content: image },
+      { name: "twitter:image:alt", content: imageAlt },
     ],
     links: [
       { rel: "canonical", href: url },
       { rel: "alternate", hrefLang: "zh-CN", href: canonical(page.path, "zh-CN") },
       { rel: "alternate", hrefLang: "en", href: canonical(page.path, "en") },
       { rel: "alternate", hrefLang: "x-default", href: canonical(page.path, "zh-CN") },
+      { rel: "author", href: AUTHOR_X },
+      { rel: "me", href: AUTHOR_X },
     ],
   };
 }
@@ -277,8 +308,36 @@ export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
       {
         "@type": "Person",
         "@id": `${SITE_ORIGIN}/#author`,
-        name: SITE_AUTHOR,
-        url: SITE_REPO,
+        name: `@${SITE_AUTHOR}`,
+        alternateName: SITE_AUTHOR,
+        url: AUTHOR_X,
+        image: {
+          "@type": "ImageObject",
+          "@id": `${SITE_ORIGIN}/#author-avatar`,
+          url: `${SITE_ORIGIN}${AUTHOR_AVATAR}`,
+          width: 240,
+          height: 240,
+          caption: `@${SITE_AUTHOR}`,
+        },
+        description: en
+          ? "Author of DSH Brickbook, a source-level reading of the DeepSeek Harness agent runtime."
+          : "DSH 积木书作者，DeepSeek Harness 智能体运行时的源码级精读。",
+        knowsAbout: ["DeepSeek Harness", "Cordis", "agent runtime", "plugin architecture"],
+        sameAs: [AUTHOR_X, AUTHOR_GITHUB, SITE_REPO],
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": `${SOURCE_REPO}#source`,
+        name: "DeepSeek Harness",
+        alternateName: "dsh",
+        description: "An open-source composable agent runtime built as a Cordis plugin tree.",
+        codeRepository: SOURCE_REPO,
+        url: HARNESS_RELEASE.url,
+        version: HARNESS_RELEASE.version,
+        dateModified: HARNESS_RELEASE.released,
+        license: `${SOURCE_REPO}/blob/master/LICENSE`,
+        programmingLanguage: ["TypeScript", "Python"],
+        runtimePlatform: "Node.js 22.19 or newer",
       },
       {
         "@type": "TechArticle",
@@ -293,10 +352,17 @@ export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
         dateModified: DATE_MODIFIED,
         author: { "@id": `${SITE_ORIGIN}/#author` },
         publisher: { "@id": `${SITE_ORIGIN}/#author` },
-        about: ["DeepSeek Harness", "Cordis", "agent runtime", "plugin architecture"],
-        citation: SOURCE_REPO,
+        about: [
+          { "@id": `${SOURCE_REPO}#source` },
+          "Cordis",
+          "agent runtime",
+          "plugin architecture",
+          "append-only event log",
+        ],
+        citation: [SOURCE_REPO, HARNESS_RELEASE.url, `${SOURCE_REPO}/blob/master/docs/architecture.md`],
         image: `${SITE_ORIGIN}/og.jpg`,
-        isBasedOn: SOURCE_REPO,
+        version: HARNESS_RELEASE.version,
+        isBasedOn: { "@id": `${SOURCE_REPO}#source` },
       },
     ],
   };
@@ -321,6 +387,8 @@ export function webpageJsonLd(
     isPartOf: { "@id": `${canonical("/", locale)}#website` },
     datePublished: DATE_PUBLISHED,
     dateModified: DATE_MODIFIED,
+    primaryImageOfPage: { "@type": "ImageObject", url: `${SITE_ORIGIN}/og.jpg` },
+    author: { "@id": `${SITE_ORIGIN}/#author` },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: crumbs.map((c, i) => ({

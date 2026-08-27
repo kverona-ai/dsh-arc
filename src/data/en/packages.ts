@@ -34,6 +34,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
     job: "Shared default model at entry points",
     kid: "The teacher used when none is chosen",
   },
+  "agent-tool-presentation": {
+    job: "Choose native tools, PTC tools, or both per agent",
+    kid: "Decide how tools are set on the table",
+  },
   llm: { job: "Message vocabulary and adapter registry", kid: "The brain's socket" },
   "llm-deepseek": { job: "Official DeepSeek adapter", kid: "The DeepSeek teacher" },
   "llm-pi-ai": {
@@ -53,6 +57,14 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   "tool-fs": { job: "read / write / edit", kid: "Read-and-write tools for the model" },
   "tool-fs-search": { job: "glob / grep (ripgrep)", kid: "Find things in the room" },
+  "fs-observation-policy": {
+    job: "Read-before-edit and version guards on fs/* events",
+    kid: "Read the newest page before changing it",
+  },
+  "tool-str-replace-editor": {
+    job: "view / create / replace / insert",
+    kid: "Change the exact sentence",
+  },
   subprocess: { job: "Process-group and PTY primitives", kid: "The runner's socket" },
   "subprocess-local": { job: "Local process tree / node-pty", kid: "The runner at home" },
   sandbox: { job: "confine(argv)", kid: "The safety-gate socket" },
@@ -61,7 +73,17 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   shell: { job: "bash executor seam", kid: "The command voice" },
   "bash-sandbox": { job: "POSIX default: fence, then run", kid: "Call commands through the fence" },
   "pwsh-sandbox": { job: "win32 twin stack", kid: "The Windows command voice" },
+  "bash-local": { job: "Bash executor over the local subprocess seam", kid: "Call commands in this room" },
+  "pwsh-local": { job: "Local PowerShell executor", kid: "The Windows voice in this room" },
   "tool-bash": { job: "Model-facing bash", kid: "The command the model can type" },
+  "tool-bash-persistent": {
+    job: "Owner-scoped persistent Bash tool",
+    kid: "A Bash blackboard that stays open",
+  },
+  "tool-pwsh-persistent": {
+    job: "Owner-scoped persistent PowerShell tool",
+    kid: "A PowerShell blackboard that stays open",
+  },
   terminal: { job: "Owner-isolated persistent PTY", kid: "A blackboard that stays open" },
   "terminal-bash": { job: "bash PTY backend", kid: "The shell on the blackboard" },
   "tool-terminal": { job: "Six PTY tools", kid: "Chalk for the model" },
@@ -88,6 +110,15 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   "plan-mode": { job: "Design first, then exit through human review", kid: "Draw the plan first" },
   goal: { job: "Event-sourced goals within a session", kid: "A goal magnet on the fridge" },
+  "command-goal": { job: "Human-facing slash command for persisted goals", kid: "Put a goal on the fridge" },
+  "goal-round-driver": {
+    job: "Race-fenced same-session goal-round driver",
+    kid: "Finish a goal one round at a time",
+  },
+  "tool-goal": {
+    job: "Goal tools with execution-time authority checks",
+    kid: "Let the agent look after the goal",
+  },
   jobs: { job: "Background job registry", kid: "A note on the washing machine" },
   "jobs-local": { job: "In-process implementation", kid: "The washing machine at home" },
   "tool-jobs": { job: "job_list / wait / kill", kid: "Check whether the washer is still turning" },
@@ -97,7 +128,27 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
     job: "Fork with the parent's log prefix",
     kid: "Copy the journal for a friend",
   },
+  "subagent-acp": {
+    job: "Drive an out-of-process child through the Agent Client Protocol",
+    kid: "Call an outside friend over a shared intercom",
+  },
+  "subagent-claude-code": {
+    job: "One-shot Claude Code provider over the official Agent SDK",
+    kid: "Ask Claude Code for one job",
+  },
+  "subagent-codex": {
+    job: "One-shot Codex provider over the app-server protocol",
+    kid: "Ask Codex for one job",
+  },
   "tool-subagent": { job: "Delegation tool", kid: "The model calls a friend" },
+  "tool-subagent-control": {
+    job: "send_message / interrupt_agent / list_agents",
+    kid: "Message a friend or ask them to stop",
+  },
+  "tool-subagent-report": {
+    job: "Child-scoped reporting to its parent",
+    kid: "A friend returns with the homework",
+  },
   workflow: { job: "Orchestration-engine seam", kid: "The choreography manual" },
   "tool-ralph": {
     job: "Ralph loop with fresh agents",
@@ -105,6 +156,13 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   "web-seam": { job: "search / fetch registry", kid: "The web socket" },
   "tool-web": { job: "web_search / web_fetch", kid: "Go look online" },
+  "web-fetch-http": { job: "Anonymous public HTTP(S) fetch provider", kid: "Bring a web page back to read" },
+  "web-search-deepseek": { job: "DeepSeek native web_search provider", kid: "Ask DeepSeek to search" },
+  "web-search-exa": { job: "Exa search provider", kid: "Use another search teacher" },
+  "web-search-perplexity": {
+    job: "Perplexity search provider",
+    kid: "Use one more search teacher",
+  },
   "mcp-client": {
     job: "Mount MCP servers into ctx.tools",
     kid: "Hang outside-shop tools in the cabinet",
@@ -114,6 +172,14 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
     job: "Token pressure plus LLM summaries",
     kid: "The person who writes the recap",
   },
+  "command-compact": {
+    job: "Human-facing slash command for explicit session compaction",
+    kid: "Press the recap button yourself",
+  },
+  "compaction-tool-result-pruner": {
+    job: "Replay-safe, model-free head/middle/tail pruning",
+    kid: "Trim a long result into its beginning, middle, and end",
+  },
   approval: { job: "One-shot permission waterfall", kid: "Raise a hand and ask" },
   "permission-presets": {
     job: "read-only / workspace-write / danger",
@@ -121,6 +187,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   },
   commands: { job: "Human slash commands", kid: "Commands that bypass the model" },
   "user-questions": { job: "Human-question seam", kid: "Ask you midway through the work" },
+  "tool-ask-user": {
+    job: "Multiline ask_user_question tool",
+    kid: "Write the whole question before asking you",
+  },
   webserver: { job: "Passive HTTP route carrier", kid: "The mailbox at the door" },
   apiproxy: { job: "Host API gateway", kid: "The receptionist" },
   "frontend-static": { job: "SPA dist fallback", kid: "Install the window glass" },
@@ -131,6 +201,10 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   "client-modules": { job: "__DSH_BOOT__ graph", kid: "The window's directory" },
   "ui-conversation": { job: "Conversation shell and composer", kid: "The conversation window" },
   "ui-slots": { job: "SlotMap composition API", kid: "Holes in the felt board" },
+  "ui-settings-plugin-inventory": {
+    job: "Read-only Cordis plugin inventory in Settings",
+    kid: "See which bricks are installed",
+  },
   "typert-registry": { job: "Runtime type registry", kid: "The cabinet of brick manuals" },
   "api-gateway": { job: "Typert RPC", kid: "The intercom through the wall" },
   "sdk-client": { job: "Out-of-process JSON-RPC client", kid: "The remote control" },
@@ -150,25 +224,63 @@ const PACKAGE_EN: Record<string, Pick<Pkg, "job" | "kid">> = {
   "code-runtime": { job: "Run a model-authored program", kid: "The small laboratory" },
   todo: { job: "todo_write full-list snapshots", kid: "The to-do list" },
   attachment: { job: "Durable binary identity", kid: "A photo attached beside the journal" },
+  "attachment-local": {
+    job: "Private content-addressed attachment storage under DSH_HOME",
+    kid: "File photos in a drawer by fingerprint",
+  },
   spill: { job: "Spill oversized tool results", kid: "Put an overlong note on another sheet" },
   workspace: { job: "Workspace entities", kid: "What is this room called?" },
-  "context-files": {
-    job: "AGENTS.md, time, tmux, @file, and @session",
-    kid: "Check the clock and manual before leaving",
+  "agent-instructions": {
+    job: "Load workspace AGENTS.md and CLAUDE.md files",
+    kid: "Read the manual before leaving",
+  },
+  "file-reference": { job: "@file discovery contract and shared grammar", kid: "Point to a paper by name" },
+  "file-reference-local": {
+    job: "Bounded fuzzy @file indexes over the local filesystem",
+    kid: "Find that paper on the desk",
+  },
+  "session-reference": {
+    job: "Cross-session snapshots and durable untrusted context",
+    kid: "Borrow a page from another journal",
+  },
+  "time-context": {
+    job: "Optional current-time and elapsed-time context",
+    kid: "Check the clock at every step",
+  },
+  "tmux-context": {
+    job: "Optional tmux pane and window context",
+    kid: "Remember which blackboard you are using",
   },
   schedule: { job: "after / at / fixed-frequency reminders", kid: "The alarm clock" },
   "repeat-tool-reminder": { job: "Warn about repeated tool calls", kid: "Stop going in circles" },
-  "timeout-policy": { job: "Put a timer on every tool call", kid: "Stop when time runs out" },
+  "timeout-policy": {
+    job: "Put a deadline on every tool call and return TOOL_TIMEOUT",
+    kid: "Stop when time runs out",
+  },
   "hooks-cc": { job: "Claude Code hook bridge", kid: "Use another kit's manual" },
   "hooks-codex": { job: "Codex hook bridge", kid: "Use a second outside manual" },
   identity: {
     job: "Shared anonymous id for telemetry and feedback",
     kid: "The anonymous name tag",
   },
-  feedback: { job: "Session feedback command and per-message ratings", kid: "The thumbs-up card" },
+  "command-feedback": {
+    job: "Log-only session feedback and slash command",
+    kid: "Rate the whole conversation",
+  },
+  "message-feedback": {
+    job: "Per-message ratings and note sidecar",
+    kid: "Give this sentence a thumbs-up",
+  },
   brand: { job: "Product names and path conventions", kid: "The name printed on the ruler" },
   "home-paths": { job: "$DSH_HOME resolution", kid: "Where is home?" },
-  testkit: { job: "Test fixtures and loader smoke tests", kid: "Practice bricks" },
+  "agent-loop-testkit": {
+    job: "Shared prerequisites for concrete agent-loop tests",
+    kid: "Practice bricks for the heartbeat",
+  },
+  "loader-smoke": {
+    job: "Keyless smoke harness for real Loader examples",
+    kid: "Try the real instructions once",
+  },
   "llm-replay": {
     job: "Replay recorded logs for keyless tests",
     kid: "Pretend the teacher is speaking",

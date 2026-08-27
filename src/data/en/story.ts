@@ -41,4 +41,10 @@ export const STORY_CHAPTERS_EN = [
     kid: "The web page is not a separate building. The house has a quiet mailbox (webserver), a receptionist (apiproxy), and a browser that assembles its own small Cordis city. The chat box, sidebar, and settings are pictures pinned into slots.",
     tech: "The Host runs in Node; the Client starts another Loader in the browser. dsh.client declares __DSH_BOOT__. Slots are UI composition points. Native capabilities are loopback-only.",
   },
+  {
+    n: "08",
+    title: "Pictures go into a drawer first",
+    kid: "The robot can look at pictures now. But a picture is never glued into the journal—it is filed in a drawer by its fingerprint, and the journal keeps only a slip with the number on it. Next time the same picture comes up, the caretaker takes the one already in the drawer instead of developing it again.",
+    tech: "ctx.attachments is the durable attachment seam: saveImage validates and normalizes the image, commits it content-addressed, and returns a serializable ImageAttachmentRef. SessionEvents carry references only—never base64, browser paths, or provider URLs. tool-fs registers read_image only while a durable store is mounted; dsh-llm-deepseek then resolves each reference into a Files API id, falling back to inline data URLs for the whole request when resolution fails.",
+  },
 ] as const;

@@ -174,6 +174,13 @@ export const GLOSSARY = [
     tech: "compaction 由 token-meter 驱动摘要；spill 把超长工具结果外溢。replace 会撕掉被阴影罩住的节点。",
     href: "/modules/compaction",
   },
+  {
+    term: "ImageAttachmentRef",
+    cn: "照片的抽屉号",
+    kid: "日记上不贴照片，只写一行『第几格抽屉』。",
+    tech: "ctx.attachments.saveImage 归一化并内容寻址提交后返回的可序列化引用。SessionEvent 只带引用；base64、浏览器路径、提供方 URL 都不入日志。read_image 需要挂载耐久存储，且路由模型声明 image 输入。",
+    href: "/modules/attachment",
+  },
 ] as const;
 
 export type GlossaryEntry = (typeof GLOSSARY)[number];
