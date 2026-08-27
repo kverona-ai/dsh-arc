@@ -112,6 +112,12 @@ A: Step = one model request + its tools. Turn = zero or more steps. A blocked fi
 Q: Can dsh read images, and do images land in the session log?
 A: Yes, but the log holds only an ImageAttachmentRef. ctx.attachments.saveImage validates, normalizes, and content-addresses the image before any model-visible event is appended. read_image needs a mounted durable store and an image-capable routed model; the DeepSeek adapter resolves references into Files API ids and falls back to inline data URLs when that fails.
 
+## Module drawers
+
+Each package group has its own page at https://dsh.177.best/en/modules/<slug> (drop /en for Chinese),
+listing that group's packages with npm name, ctx key, and one-line job. Slugs are enumerated in
+https://dsh.177.best/llms.txt.
+
 ## Where new behavior hangs
 
 - New model provider → ctx.llm

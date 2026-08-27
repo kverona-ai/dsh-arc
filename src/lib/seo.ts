@@ -1,4 +1,8 @@
 import { HARNESS_RELEASE } from "@/data/release";
+import { GROUPS, LAYERS } from "@/data/groups";
+import { PACKAGES } from "@/data/packages";
+import { groupsEn, LAYERS_EN } from "@/data/en/groups";
+import { packagesEn } from "@/data/en/packages";
 
 export const SITE_ORIGIN = "https://dsh.177.best";
 export const SITE_NAME = "DSH 积木书";
@@ -8,10 +12,8 @@ export const SITE_AUTHOR = "willzero";
 export const AUTHOR_X = "https://x.com/willzero";
 export const AUTHOR_AVATAR = "/avatar-willzero.jpg";
 export const AUTHOR_GITHUB = "https://github.com/kverona-ai";
-export const SITE_DESCRIPTION =
-  `DeepSeek Harness ${HARNESS_RELEASE.version} 架构图解：Cordis 插件底板、仅追加会话日志、能力 seam 与 ${HARNESS_RELEASE.packageCount} 个源码包，小孩版与源码对照。`;
-export const SITE_DESCRIPTION_EN =
-  `A source-level guide to DeepSeek Harness ${HARNESS_RELEASE.version}: Cordis plugins, append-only Session logs, capability seams, and ${HARNESS_RELEASE.packageCount} source packages.`;
+export const SITE_DESCRIPTION = `DeepSeek Harness ${HARNESS_RELEASE.version} 架构图解：Cordis 插件底板、仅追加会话日志、能力 seam 与 ${HARNESS_RELEASE.packageCount} 个源码包，小孩版与源码对照。`;
+export const SITE_DESCRIPTION_EN = `A source-level guide to DeepSeek Harness ${HARNESS_RELEASE.version}: Cordis plugins, append-only Session logs, capability seams, and ${HARNESS_RELEASE.packageCount} source packages.`;
 export const SOURCE_REPO = "https://github.com/deepseek-ai/deepseek-harness";
 export const SITE_REPO = "https://github.com/kverona-ai/dsh-arc";
 export const DATE_PUBLISHED = "2026-08-23";
@@ -81,8 +83,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   "/modules": {
     path: "/modules",
     title: `DeepSeek Harness ${HARNESS_RELEASE.version} 模块目录 · ${HARNESS_RELEASE.packageCount} 个包怎么放`,
-    description:
-      `官方 ${HARNESS_RELEASE.version} 的 ${HARNESS_RELEASE.packageCount} 个包清单与精编目录：agent-loop、session、llm、fs、sandbox、subagent、host/client。`,
+    description: `官方 ${HARNESS_RELEASE.version} 的 ${HARNESS_RELEASE.packageCount} 个包清单与精编目录：agent-loop、session、llm、fs、sandbox、subagent、host/client。`,
   },
   "/glossary": {
     path: "/glossary",
@@ -94,7 +95,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     path: "/faq",
     title: "常见问题 · DeepSeek Harness 架构 FAQ",
     description:
-      "DeepSeek Harness 是什么？Cordis 做什么？模型可见即已记录是什么意思？围栏和 E2B 有何不同？插件怎么换？",
+      "DeepSeek Harness 是什么？Cordis 做什么？模型可见即已记录是什么意思？围栏和 E2B 有何不同？图片怎么进会话日志？十问十答，答案对齐源码。",
   },
 };
 
@@ -156,8 +157,7 @@ export const PAGE_SEO_EN: Record<string, PageSeo> = {
   "/modules": {
     path: "/modules",
     title: `DeepSeek Harness ${HARNESS_RELEASE.version} Module Directory · DSH Brickbook`,
-    description:
-      `Explore the ${HARNESS_RELEASE.packageCount} package manifests in ${HARNESS_RELEASE.version}, with a curated directory across the agent loop, Session, LLM, sandbox, subagents, and Host/Client layers.`,
+    description: `A curated directory over the ${HARNESS_RELEASE.packageCount} package manifests in ${HARNESS_RELEASE.version}: agent loop, Session, LLM, filesystem, sandbox, subagents, Host and Client.`,
   },
   "/glossary": {
     path: "/glossary",
@@ -179,6 +179,87 @@ export function canonical(path: string, locale: "zh-CN" | "en" = "zh-CN") {
   return normalized ? `${SITE_ORIGIN}${normalized}` : `${SITE_ORIGIN}/`;
 }
 
+/** Trim to a byte-ish budget on a separator, so a title or description ends on a word. */
+function clamp(text: string, max: number) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const stop = Math.max(cut.lastIndexOf("、"), cut.lastIndexOf(","), cut.lastIndexOf(" "));
+  return `${(stop > max * 0.6 ? cut.slice(0, stop) : cut).trimEnd()}…`;
+}
+
+/** npm names without the scope — "dsh-llm-deepseek" is what people paste into search. */
+export function groupPackageNames(slug: string, locale: "zh-CN" | "en" = "zh-CN") {
+  const list = locale === "en" ? packagesEn(PACKAGES) : PACKAGES;
+  return list
+    .filter((pkg) => pkg.group === slug)
+    .map((pkg) => pkg.npm.replace("@deepseek-ai/", ""));
+}
+
+/**
+ * Title and description for one module drawer. Generic "<slug> · Module" titles
+ * gave 100 pages nothing to rank on, so both carry the drawer's real job,
+ * ctx key, and package names.
+ */
+export function moduleSeo(slug: string, locale: "zh-CN" | "en" = "zh-CN"): PageSeo | undefined {
+  const groups = locale === "en" ? groupsEn(GROUPS) : GROUPS;
+  const group = groups.find((item) => item.slug === slug);
+  if (!group) return undefined;
+  const en = locale === "en";
+  const names = groupPackageNames(slug, locale);
+  const shown = names.slice(0, 4).join(en ? ", " : "、");
+  const rest = names.length > 4 ? names.length - 4 : 0;
+  const packagesLine = names.length
+    ? en
+      ? ` ${names.length} packages: ${shown}${rest ? `, and ${rest} more` : ""}.`
+      : `收录 ${names.length} 个包：${shown}${rest ? ` 等` : ""}。`
+    : "";
+  const ctxLine = group.ctx ? (en ? ` Context key ${group.ctx}.` : `ctx 键 ${group.ctx}。`) : "";
+  const layer = (en ? LAYERS_EN : LAYERS).find((item) => item.id === group.layer);
+  const siblings = groups
+    .filter((item) => item.layer === group.layer && item.slug !== slug)
+    .slice(0, 4)
+    .map((item) => item.name)
+    .join(en ? ", " : "、");
+  // Short drawers would otherwise ship a 60-character description; the layer and
+  // its neighbours are real context, not padding.
+  const layerLine = layer
+    ? en
+      ? ` In the ${layer.title} layer${siblings ? `, beside ${siblings}` : ""}.`
+      : `属于「${layer.title}」层${siblings ? `，同层还有 ${siblings}` : ""}。`
+    : "";
+  const key = group.ctx ?? group.path;
+  return {
+    path: `/modules/${slug}`,
+    title: en
+      ? `${group.name} · ${clamp(key, 30)} · DeepSeek Harness module`
+      : `${group.name} · ${clamp(key, 30)} · DeepSeek Harness 模块`,
+    description: clamp(
+      en
+        ? `${group.path} — ${group.job}. ${group.kid}.${ctxLine}${packagesLine}${layerLine}`
+        : `${group.path}：${group.job}。${group.kid}。${ctxLine}${packagesLine}${layerLine}`,
+      158,
+    ),
+  };
+}
+
+/** Unknown drawer: keep it out of the index instead of serving a soft 404. */
+export function notFoundHead(locale: "zh-CN" | "en" = "zh-CN") {
+  const en = locale === "en";
+  return {
+    meta: [
+      { title: en ? "Page not found · DSH Brickbook" : "找不到这一页 · DSH 积木书" },
+      { name: "robots", content: "noindex, follow" },
+      {
+        name: "description",
+        content: en
+          ? "That drawer does not exist. Open the module directory to find the right one."
+          : "没有这个抽屉。回到模块目录找找别的积木。",
+      },
+    ],
+    links: [],
+  };
+}
+
 export function pageSeo(
   path: string,
   override?: Partial<PageSeo>,
@@ -196,15 +277,15 @@ export function pageSeo(
     };
   }
   const slug = path.match(/^\/modules\/([^/]+)$/)?.[1];
-  if (slug && !override?.title) {
-    // Lazy import avoided: callers may pass override from groupBySlug.
-    return {
-      path,
-      title:
-        override?.title ??
-        `${slug} · DeepSeek Harness ${locale === "en" ? "Module" : "模块"} | ${siteName}`,
-      description: override?.description ?? siteDescription,
-    };
+  if (slug) {
+    const module = moduleSeo(slug, locale);
+    if (module) {
+      return {
+        path,
+        title: override?.title ?? module.title,
+        description: override?.description ?? module.description,
+      };
+    }
   }
   return {
     path,
@@ -359,7 +440,11 @@ export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
           "plugin architecture",
           "append-only event log",
         ],
-        citation: [SOURCE_REPO, HARNESS_RELEASE.url, `${SOURCE_REPO}/blob/master/docs/architecture.md`],
+        citation: [
+          SOURCE_REPO,
+          HARNESS_RELEASE.url,
+          `${SOURCE_REPO}/blob/master/docs/architecture.md`,
+        ],
         image: `${SITE_ORIGIN}/og.jpg`,
         version: HARNESS_RELEASE.version,
         isBasedOn: { "@id": `${SOURCE_REPO}#source` },
@@ -416,7 +501,13 @@ function breadcrumbs(
         name: locale === "en" ? "Module directory" : "模块目录",
         item: canonical("/modules", locale),
       },
-      { name: seo?.title ?? path, item: canonical(path, locale) },
+      {
+        name:
+          (locale === "en" ? groupsEn(GROUPS) : GROUPS).find(
+            (group) => group.slug === path.slice("/modules/".length),
+          )?.name ?? path.slice("/modules/".length),
+        item: canonical(path, locale),
+      },
     ];
   }
   return [home, { name: seo?.title.split("·")[0]?.trim() ?? path, item: canonical(path, locale) }];

@@ -40,3 +40,10 @@ Source snapshot: dsh-v0.1.1-rc.2, commit b150a55, released 2026-08-21; 227 packa
 
 - [Full digest](https://dsh.177.best/llms-full.txt): quotable definitions for retrieval
 - [Sitemap](https://dsh.177.best/sitemap.xml)
+
+## Module drawers
+
+Every drawer is https://dsh.177.best/en/modules/<slug> — drop /en for the Chinese page.
+Each one lists that group's packages with npm name, ctx key, and job.
+
+vendor, boot, bundle, core, llm, fs, subprocess, sandbox, shell, terminal, lsp, code-runtime, session, session-query, storage, attachment, compaction, spill, skill, plan, goal, jobs, workflow, subagent, web, mcp, todo, extensions, host, client, interaction, credentials, settings, guard, hooks, identity, feedback, workspace, preset, context, api, typert, sdk, acp, schedule, e2b, experimental, runtime-diagnostics, util, test-support

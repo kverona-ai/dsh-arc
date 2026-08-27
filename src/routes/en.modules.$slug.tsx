@@ -1,25 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import { GroupPage } from "@/routes/modules.$slug";
 import { Page } from "@/components/page";
 import { LocalizedLink } from "@/components/localized-link";
-import { groupsEn } from "@/data/en/groups";
-import { GROUPS } from "@/data/groups";
-import { seoHead } from "@/lib/seo";
+import { groupBySlug } from "@/data/groups";
+import { notFoundHead, seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/en/modules/$slug")({
-  component: GroupPage,
-  head: ({ params }) => {
-    const group = groupsEn(GROUPS).find((item) => item.slug === params.slug);
-    if (!group) return seoHead("/modules", undefined, "en");
-    return seoHead(
-      `/modules/${group.slug}`,
-      {
-        title: `${group.name} · DeepSeek Harness Module | DSH Brickbook`,
-        description: `${group.job}. ${group.kid}${group.ctx ? `. ${group.ctx}` : ""}.`,
-      },
-      "en",
-    );
+  loader: ({ params }) => {
+    if (!groupBySlug(params.slug)) throw notFound();
+    return null;
   },
+  component: GroupPage,
+  head: ({ params }) =>
+    groupBySlug(params.slug)
+      ? seoHead(`/modules/${params.slug}`, undefined, "en")
+      : notFoundHead("en"),
   notFoundComponent: () => (
     <Page
       title="That drawer does not exist"

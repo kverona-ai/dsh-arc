@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Regenerates public/sitemap.xml from the module groups, so a new drawer never
-// silently misses the index. Both locales are emitted with hreflang alternates.
-import { writeFileSync } from "node:fs";
+// Regenerates the crawler artifacts that enumerate module drawers — sitemap.xml
+// and the drawer list in llms.txt — from src/data/groups.ts, so a new drawer
+// never silently misses either one. Both locales get hreflang alternates.
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -57,6 +58,24 @@ ${body}
 </urlset>
 `;
 
-const out = join(root, "public/sitemap.xml");
-writeFileSync(out, xml);
+writeFileSync(join(root, "public/sitemap.xml"), xml);
 console.log(`sitemap.xml — ${paths.length * 2} urls, lastmod ${lastmod}`);
+
+// llms.txt keeps one compact drawer list instead of 50 link lines: a retrieval
+// client only needs the URL shape plus the slugs.
+const MARKER = "## Module drawers";
+const drawers = [
+  MARKER,
+  "",
+  `Every drawer is ${ORIGIN}/en/modules/<slug> — drop /en for the Chinese page.`,
+  "Each one lists that group's packages with npm name, ctx key, and job.",
+  "",
+  GROUPS.map((g) => g.slug).join(", "),
+  "",
+].join("\n");
+
+const llmsPath = join(root, "public/llms.txt");
+const llms = readFileSync(llmsPath, "utf8");
+const at = llms.indexOf(MARKER);
+writeFileSync(llmsPath, (at === -1 ? `${llms.trimEnd()}\n\n` : llms.slice(0, at)) + drawers);
+console.log(`llms.txt — ${GROUPS.length} drawer slugs`);

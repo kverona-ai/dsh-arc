@@ -2,10 +2,10 @@ import { createFileRoute, notFound, useParams } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { KidNote, TechNote } from "@/components/kid-note";
 import { Page } from "@/components/page";
-import { groupBySlug } from "@/data/groups";
+import { groupBySlug, LAYERS, type Group } from "@/data/groups";
 import { ROLE_LABEL } from "@/data/packages";
-import { seoHead } from "@/lib/seo";
-import { groupsEn } from "@/data/en/groups";
+import { notFoundHead, seoHead } from "@/lib/seo";
+import { groupsEn, LAYERS_EN } from "@/data/en/groups";
 import { GROUPS } from "@/data/groups";
 import { PACKAGES } from "@/data/packages";
 import { packagesEn, ROLE_LABEL_EN } from "@/data/en/packages";
@@ -13,15 +13,16 @@ import { useLocale } from "@/lib/locale";
 import { LocalizedLink } from "@/components/localized-link";
 
 export const Route = createFileRoute("/modules/$slug")({
-  component: GroupPage,
-  head: ({ params }) => {
-    const group = groupBySlug(params.slug);
-    if (!group) return seoHead("/modules");
-    return seoHead(`/modules/${group.slug}`, {
-      title: `${group.name} · DeepSeek Harness 模块 | DSH 积木书`,
-      description: `${group.job}。${group.kid}${group.ctx ? `。${group.ctx}` : ""}。`,
-    });
+  // Reject the slug before render so the boundary owns the response; a throw
+  // from the component rendered an empty 200 page that crawlers read as a
+  // near-duplicate of /modules.
+  loader: ({ params }) => {
+    if (!groupBySlug(params.slug)) throw notFound();
+    return null;
   },
+  component: GroupPage,
+  head: ({ params }) =>
+    groupBySlug(params.slug) ? seoHead(`/modules/${params.slug}`) : notFoundHead(),
   notFoundComponent: () => (
     <Page title="没有这个抽屉" lead="回到目录看看别的积木。">
       <LocalizedLink to="/modules" className="text-accent hover:underline">
@@ -82,7 +83,50 @@ export function GroupPage() {
       )}
 
       <GroupExtra slug={slug} en={en} />
+      <SiblingDrawers group={group} groups={sourceGroups} en={en} />
     </Page>
+  );
+}
+
+/**
+ * Drawer pages had exactly one outbound link, so neither readers nor crawlers
+ * could move sideways. The same layer is the honest neighbourhood.
+ */
+function SiblingDrawers({ group, groups, en }: { group: Group; groups: Group[]; en: boolean }) {
+  const layers = en ? LAYERS_EN : LAYERS;
+  const sameLayer = groups.filter((item) => item.layer === group.layer && item.slug !== group.slug);
+  // A layer can hold a single drawer (brain is just llm). Fall back to the
+  // layers on either side rather than leaving that page with one link.
+  const at = layers.findIndex((item) => item.id === group.layer);
+  const neighbours = [layers[at - 1]?.id, layers[at + 1]?.id].filter(Boolean);
+  const siblings = sameLayer.length
+    ? sameLayer
+    : groups.filter((item) => neighbours.includes(item.layer));
+  if (!siblings.length) return null;
+  const layer = layers[at];
+  return (
+    <nav className="mt-12 border-t border-border pt-6" aria-labelledby="sibling-drawers">
+      <h2 id="sibling-drawers" className="text-sm font-medium text-muted">
+        {sameLayer.length
+          ? `${en ? "Same layer" : "同一层的抽屉"}${layer ? ` · ${layer.title}` : ""}`
+          : en
+            ? "Neighbouring layers"
+            : "相邻层的抽屉"}
+      </h2>
+      <ul className="mt-3 flex flex-wrap gap-2">
+        {siblings.map((item) => (
+          <li key={item.slug}>
+            <LocalizedLink
+              to={`/modules/${item.slug}`}
+              className="flex min-h-11 items-center gap-2 rounded-md bg-elevated px-3 text-sm shadow-[var(--shadow-border)] transition-colors duration-[var(--motion-quick)] hover:bg-surface"
+            >
+              <span className="font-medium">{item.name}</span>
+              <span className="text-xs text-subtle">{item.kid}</span>
+            </LocalizedLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 

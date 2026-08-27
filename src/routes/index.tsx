@@ -163,7 +163,7 @@ export function HomePage() {
             {en ? "All questions" : "全部问答"}
           </LocalizedLink>
         </div>
-        <FaqList limit={4} />
+        <FaqList limit={4} headingLevel={3} />
       </section>
       <Pager pathname="/" />
     </main>
