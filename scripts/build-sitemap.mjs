@@ -8,6 +8,8 @@ import { dirname, join } from "node:path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const { GROUPS } = await import(join(root, "src/data/groups.ts"));
+const { FAQS_EN } = await import(join(root, "src/data/en/faq.ts"));
+const { GLOSSARY_EN } = await import(join(root, "src/data/en/glossary.ts"));
 
 const ORIGIN = "https://dsh.177.best";
 const lastmod = process.env.SITEMAP_DATE || new Date().toISOString().slice(0, 10);
@@ -60,6 +62,33 @@ ${body}
 
 writeFileSync(join(root, "public/sitemap.xml"), xml);
 console.log(`sitemap.xml — ${paths.length * 2} urls, lastmod ${lastmod}`);
+
+/** Replace one `## Heading` section, up to the next heading or EOF. */
+function replaceSection(text, heading, body) {
+  const start = text.indexOf(`## ${heading}\n`);
+  if (start === -1) throw new Error(`llms-full.txt has no "## ${heading}" section`);
+  const after = text.indexOf("\n## ", start + 1);
+  const tail = after === -1 ? "" : text.slice(after + 1);
+  return `${text.slice(0, start)}## ${heading}\n\n${body}\n${tail}`;
+}
+
+// The digest's FAQ and glossary are generated from the same data the pages
+// render, so a retrieval client gets the whole corpus in one fetch and the two
+// copies cannot drift apart.
+const llmsFullPath = join(root, "public/llms-full.txt");
+let full = readFileSync(llmsFullPath, "utf8");
+full = replaceSection(
+  full,
+  "FAQ",
+  FAQS_EN.map((item) => `Q: ${item.q}\nA: ${item.a}`).join("\n\n"),
+);
+full = replaceSection(
+  full,
+  "Glossary",
+  GLOSSARY_EN.map((term) => `${term.term} (${term.cn}): ${term.tech}`).join("\n"),
+);
+writeFileSync(llmsFullPath, full);
+console.log(`llms-full.txt — ${FAQS_EN.length} answers, ${GLOSSARY_EN.length} terms`);
 
 // llms.txt keeps one compact drawer list instead of 50 link lines: a retrieval
 // client only needs the URL shape plus the slugs.

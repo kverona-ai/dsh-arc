@@ -82,36 +82,35 @@ Client starts another Cordis Loader in the browser from __DSH_BOOT__. Slots comp
 
 ## FAQ
 
-Q: Which source version does this digest cover?
-A: dsh-v0.1.1-rc.2 at commit b150a55, published 2026-08-21. The official packages/ tree contains 227 package manifests.
+Q: Which DeepSeek Harness version does this Brickbook cover?
+A: The content is aligned with the official dsh-v0.1.1-rc.2 release at commit b150a55, published on 2026-08-21. That source snapshot contains 227 packages/*/package.json manifests; the directory curates the core and representative plugins instead of flattening all 227 into one list.
 
 Q: What is DeepSeek Harness?
-A: An open-source agent runtime. Model adapters, tools, sessions, sandboxes, loops, and UI are all plugins.
+A: DeepSeek Harness (dsh) is an open-source agent runtime. It does not hard-code a model into its core: model adapters, tools, sessions, sandboxes, loops, and UI are all plugins. Its two central ideas are Everything is a plugin and Every run is traceable.
 
-Q: What does Cordis do?
-A: Plugin kernel. Shared Context, services, typed events, reversible effects. Fiber unload unwinds registrations. No privileged core.
+Q: What does Cordis do in dsh?
+A: Cordis is the baseplate. Plugins contribute Services, typed events, and reversible effects to a shared Context. Registrations are automatically undone when a fiber is disposed. There is no privileged kernel to patch; extend the system by mounting a plugin beside the others.
 
-Q: What does “Everything is a plugin” mean?
-A: Swap an LLM adapter without changing the loop. Swap fs+subprocess and shell/PTY/LSP follow. Compose from configuration, not source forks.
+Q: What does Everything is a plugin mean?
+A: Every capability is a replaceable brick. Change the LLM adapter without changing the loop; replace the filesystem provider and Bash, PTY, and LSP can follow. Select, replace, and extend through configuration instead of editing dsh source.
 
-Q: What does “model-visible means logged” mean?
-A: Everything that reaches a model request must be reconstructable from the append-only session log. deriveMessages() is a projection.
+Q: What does model-visible means logged mean?
+A: Everything that reaches a model request must be reconstructible from the append-only Session log. deriveMessages() projects surface events instead of maintaining a second chat array. This runtime invariant is the basis of Every run is traceable.
 
-Q: sandbox vs E2B?
-A: sandbox.confine is a local argv wrapper. E2B is another execution world (fs + subprocess). Gate ≠ moving the playroom.
+Q: How are sandbox and E2B different?
+A: sandbox.confine wraps local argv—a safety gate inside this room. E2B is another fs + subprocess provider pair, like moving the whole playroom into the cloud. A fence is not a move; hands and feet must share one execution world.
 
-Q: Cordis inject vs Agent.inject()?
-A: Cordis inject waits for required services. Agent.inject() enqueues next-step input without waking the driver. Same English word, different APIs.
+Q: Are Cordis inject and Agent.inject() the same?
+A: No. Cordis inject declares plugin dependencies and waits for required services before activation. Agent.inject() puts a message into inbox.next-step without waking the driver. They share a name but do entirely different jobs.
 
-Q: scope vs isolate?
-A: scope is a per-agent registration locker. isolate gives a child context its own copy of a named service. Presets use isolate.
+Q: How are scope and isolate different?
+A: scope is a set of per-agent lockers, not a sandbox. isolate gives a child Context its own service with the same name—its own classroom tap. Agent presets use isolate to change outfits.
 
-Q: turn vs step?
-A: Step = one model request + its tools. Turn = zero or more steps. A blocked first claim still records a durable empty turn.
+Q: How do a turn and a step differ?
+A: A step is one model request plus the tools it calls. A turn contains zero or more steps: it opens before the first input is claimed and closes when no work remains. Even a rejected first claim leaves a durable zero-step turn.
 
 Q: Can dsh read images, and do images land in the session log?
-A: Yes, but the log holds only an ImageAttachmentRef. ctx.attachments.saveImage validates, normalizes, and content-addresses the image before any model-visible event is appended. read_image needs a mounted durable store and an image-capable routed model; the DeepSeek adapter resolves references into Files API ids and falls back to inline data URLs when that fails.
-
+A: Yes, but the log stores only a reference. ctx.attachments.saveImage validates and normalizes the image, commits it content-addressed, and returns an ImageAttachmentRef; base64, browser paths, and provider URLs never reach a SessionEvent. tool-fs registers read_image only while a durable attachment store is mounted, and the routed model must declare image input; dsh-llm-deepseek then resolves each reference into a Files API id and falls back to inline data URLs for the whole request when resolution fails.
 ## Module drawers
 
 Each package group has its own page at https://dsh.177.best/en/modules/<slug> (drop /en for Chinese),
@@ -135,16 +134,31 @@ https://dsh.177.best/llms.txt.
 - UI / editor → ctx.agents + session/event
 - Durable session state → extend SessionEventMap
 
-## Glossary (short)
+## Glossary
 
-Plugin: Service as function (inject + apply) or class (super(ctx, name)).
-Context / ctx: service store keyed by name (ctx.llm, ctx.tools, ctx.sessions).
-Fiber: plugin instance lifetime; unload unwinds effects.
-Profile: named composition in Harness home (web / headless).
-Bundle: distributable Cordis config rows (dsh-base, dsh-web-app, dsh-headless).
-Patch: replace a row by id; no deep merge.
-Seam: definition + provider + consumer.
-Execution world: fs + subprocess together.
-Session: append-only SessionEvent log.
-Waterfall: around-middleware; must next() to continue.
-ImageAttachmentRef: serializable reference returned by saveImage; the only image identity a SessionEvent stores.
+Plugin (Replaceable brick): A function or class that implements a Service. Function plugins export inject + apply(ctx); class plugins call super(ctx, name) in the constructor and register immediately.
+Cordis (Baseplate): A spatially and temporally composable plugin framework. It contributes Services, typed events, and reversible Effects. Fiber disposal unwinds registrations.
+Context / ctx (Shared shelf): The service repository. Stable keys include ctx.tools, ctx.llm, and ctx.sessions. Depend on a service name, not its implementation.
+inject (Cordis) (Wait for friends): A plugin's service dependency declaration. Requirements express load order instead of manual boot sequencing. This is unrelated to agent.inject().
+inject() (Agent) (Slide a note under the door): Agent.inject() puts a message into inbox.next-step without calling wakeDriver. Runtime context, skill bodies, and time commonly use this path.
+Fiber (A mounted brick's lifetime): The lifecycle of a Cordis plugin instance. Fiber disposal unwinds every ctx.effect() / ctx.on() registration.
+Effect (Reversible registration): Registrations made through ctx.effect() or ctx.on(). There is no privileged kernel to patch.
+isolate (A classroom's own tap): isolate(name, label) gives a child Context its own same-named service. Agent presets use it to build a capability tree per classroom.
+scope (Locker): dsh-scope partitions registration layers by agent. Scope is not a sandbox; isolate provides independent same-named services.
+Profile (Toy box): A named assembly stored in Harness home. It lists bundles, out-of-tree plugins, and the user's cordis.patch.yml. Web and headless ship as templates.
+Bundle (A ready-made bag of bricks): A distribution format for Cordis config entries and mounting code. dsh.bundle points at a patch file. Higher layers may always patch inserted content.
+Patch (Note / sticker): applyEntryPatches replaces a complete config row by id or inserts a new one. There is no deep merge; later layers win.
+Seam (Replaceable connector): Service Definition + Provider + Consumer. Extension plugins depend on the definition, never a concrete provider.
+Execution world (The room where work happens): fs and subprocess share an execution world. Point both at E2B and Bash, PTY, and LSP follow without provider-specific forks.
+Sandbox (Fence / safety gate): ctx.sandbox.confine wraps local argv. A remote sandbox is a different fs/subprocess provider pair, not a sandbox backend.
+Session (Journal): An append-only SessionEvent log with in-memory storage, exposed as ctx.sessions. Fork, resume, and search derive from it.
+Model-visible means logged (Seen by the model means already recorded): deriveMessages() projects model history from surface events. A runtime invariant ensures everything reaching a model request can be rebuilt from the log.
+Turn / Step (One assignment / one step): A Turn opens before the first claim and closes when no work remains. A Step is one model request plus its tools. A rejected first claim still closes a durable zero-step turn.
+Inbox (Notes on the desk): followup → next-turn and wakes; steer → next-step and wakes; inject → next-step without waking. Claim only deletes.
+Waterfall (Passing paper through an onion): Around-middleware where listeners receive (...args, next). agent/pre-step, agent/request, llm/stream, and tools/* are waterfalls.
+emit / parallel / serial (Broadcast / work together / take turns): emit does not await; parallel awaits all; serial awaits in order and returns values. turn-stopping is serial.
+Host / Client (House / window): Host: webserver / apiproxy. Client: another Loader mounts immediately entries and gives the DOM to ctx.uiRenderer. Native capabilities are loopback-only.
+Slot (A hole in the felt board): The SlotMap composition API. ConversationNodeDefinition plus a keyed renderer adds a conversation node.
+Agent preset (Agent outfit): Assemble an agent + persona per session. Service rows require an isolate realm. Exposed as ctx.agentPresets.
+compaction / spill (Recap / another sheet): compaction uses token-meter pressure to trigger summaries; spill moves oversized tool results out of line. replace removes nodes hidden by its shadow.
+ImageAttachmentRef (Drawer number for a photo): The serializable reference returned by ctx.attachments.saveImage after it normalizes and content-addresses an image. SessionEvents carry the reference only; base64, browser paths, and provider URLs never reach the log. read_image requires a mounted durable store and a routed model that declares image input.

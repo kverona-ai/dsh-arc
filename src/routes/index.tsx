@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Brick } from "@/components/brick";
 import { Pager } from "@/components/pager";
+import { SourceNote } from "@/components/source-note";
 import { Button } from "@/components/ui/button";
 import { KidNote } from "@/components/kid-note";
 import { FaqList } from "@/components/faq-list";
@@ -48,14 +49,10 @@ export function HomePage() {
               </LocalizedLink>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <LocalizedLink to="/map">
-                {en ? "Explore the map" : "看整座积木城"}
-              </LocalizedLink>
+              <LocalizedLink to="/map">{en ? "Explore the map" : "看整座积木城"}</LocalizedLink>
             </Button>
             <Button asChild variant="ghost" size="lg">
-              <LocalizedLink to="/loop">
-                {en ? "Follow a turn" : "看一轮对话"}
-              </LocalizedLink>
+              <LocalizedLink to="/loop">{en ? "Follow a turn" : "看一轮对话"}</LocalizedLink>
             </Button>
           </div>
         </div>
@@ -165,6 +162,7 @@ export function HomePage() {
         </div>
         <FaqList limit={4} headingLevel={3} />
       </section>
+      <SourceNote path="/" />
       <Pager pathname="/" />
     </main>
   );

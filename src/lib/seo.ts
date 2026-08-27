@@ -1,4 +1,4 @@
-import { HARNESS_RELEASE } from "@/data/release";
+import { HARNESS_RELEASE, HARNESS_REPO } from "@/data/release";
 import { GROUPS, LAYERS } from "@/data/groups";
 import { PACKAGES } from "@/data/packages";
 import { groupsEn, LAYERS_EN } from "@/data/en/groups";
@@ -14,7 +14,7 @@ export const AUTHOR_AVATAR = "/avatar-willzero.jpg";
 export const AUTHOR_GITHUB = "https://github.com/kverona-ai";
 export const SITE_DESCRIPTION = `DeepSeek Harness ${HARNESS_RELEASE.version} 架构图解：Cordis 插件底板、仅追加会话日志、能力 seam 与 ${HARNESS_RELEASE.packageCount} 个源码包，小孩版与源码对照。`;
 export const SITE_DESCRIPTION_EN = `A source-level guide to DeepSeek Harness ${HARNESS_RELEASE.version}: Cordis plugins, append-only Session logs, capability seams, and ${HARNESS_RELEASE.packageCount} source packages.`;
-export const SOURCE_REPO = "https://github.com/deepseek-ai/deepseek-harness";
+export const SOURCE_REPO = HARNESS_REPO;
 export const SITE_REPO = "https://github.com/kverona-ai/dsh-arc";
 export const DATE_PUBLISHED = "2026-08-23";
 export const DATE_MODIFIED = "2026-08-28";
@@ -416,7 +416,7 @@ export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
         url: HARNESS_RELEASE.url,
         version: HARNESS_RELEASE.version,
         dateModified: HARNESS_RELEASE.released,
-        license: `${SOURCE_REPO}/blob/master/LICENSE`,
+        license: `${SOURCE_REPO}/blob/${HARNESS_RELEASE.tag}/LICENSE`,
         programmingLanguage: ["TypeScript", "Python"],
         runtimePlatform: "Node.js 22.19 or newer",
       },
@@ -443,7 +443,31 @@ export function websiteJsonLd(locale: "zh-CN" | "en" = "zh-CN"): {
         citation: [
           SOURCE_REPO,
           HARNESS_RELEASE.url,
-          `${SOURCE_REPO}/blob/master/docs/architecture.md`,
+          `${SOURCE_REPO}/blob/${HARNESS_RELEASE.tag}/docs/architecture.md`,
+        ],
+        // Named entities the book actually covers, each pointed at its own
+        // authority so an answer engine can resolve them rather than guess.
+        mentions: [
+          {
+            "@type": "SoftwareSourceCode",
+            name: "Cordis",
+            description:
+              "The spatially and temporally composable plugin framework dsh is built on.",
+            url: `${SOURCE_REPO}/tree/${HARNESS_RELEASE.tag}/vendor`,
+          },
+          {
+            "@type": "Thing",
+            name: "Model Context Protocol",
+            alternateName: "MCP",
+            sameAs: "https://modelcontextprotocol.io",
+          },
+          {
+            "@type": "Thing",
+            name: "Agent Client Protocol",
+            alternateName: "ACP",
+            sameAs: "https://agentclientprotocol.com",
+          },
+          { "@type": "Thing", name: "E2B", sameAs: "https://e2b.dev" },
         ],
         image: `${SITE_ORIGIN}/og.jpg`,
         version: HARNESS_RELEASE.version,

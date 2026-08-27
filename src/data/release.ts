@@ -1,3 +1,5 @@
+export const HARNESS_REPO = "https://github.com/deepseek-ai/deepseek-harness";
+
 export const HARNESS_RELEASE = {
   version: "0.1.1-rc.2",
   tag: "dsh-v0.1.1-rc.2",

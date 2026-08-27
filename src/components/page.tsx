@@ -1,6 +1,8 @@
 import { useRouterState } from "@tanstack/react-router";
+import { basePath } from "@/lib/locale";
 import type { ReactNode } from "react";
 import { Pager } from "@/components/pager";
+import { SourceNote } from "@/components/source-note";
 import { cn } from "@/lib/utils";
 
 export function Page({
@@ -29,13 +31,12 @@ export function Page({
           ) : null}
           <h1 className="text-3xl leading-tight tracking-tight sm:text-5xl">{title}</h1>
           {lead ? (
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              {lead}
-            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{lead}</p>
           ) : null}
         </header>
         {children}
       </article>
+      <SourceNote path={basePath(pathname)} />
       <Pager pathname={pathname} />
     </main>
   );

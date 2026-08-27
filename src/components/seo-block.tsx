@@ -15,6 +15,8 @@ import { BOOT_STEPS } from "@/data/boot";
 import { BOOT_STEPS_EN } from "@/data/en/boot";
 import { STORY_CHAPTERS } from "@/data/story";
 import { STORY_CHAPTERS_EN } from "@/data/en/story";
+import { HARNESS_RELEASE } from "@/data/release";
+import { sourcesForPath, sourceUrl } from "@/data/sources";
 import { basePath, localeFromPath } from "@/lib/locale";
 
 type Node = Record<string, unknown>;
@@ -37,9 +39,20 @@ export function SeoBlock() {
   // Point the page at the thing it is actually about, so an answer engine reads
   // the FAQ, HowTo, term set, or package list as this URL's primary entity.
   const primary = entities[0]?.["@id"];
+  // The upstream files this page was written from, same list the footer shows.
+  const citation = sourcesForPath(path).map((source) => ({
+    "@type": "WebPage",
+    name: en ? source.labelEn : source.label,
+    url: sourceUrl(source.path),
+    isPartOf: { "@id": `${SOURCE_REPO}#source` },
+  }));
   const graph: unknown[] = [
     ...site["@graph"],
-    primary ? { ...page, mainEntity: { "@id": primary } } : page,
+    {
+      ...page,
+      ...(primary ? { mainEntity: { "@id": primary } } : {}),
+      ...(citation.length ? { citation } : {}),
+    },
     ...entities,
   ];
 
@@ -104,7 +117,7 @@ function pageEntities(path: string, url: string, en: boolean): Node[] {
             name: pkg.npm,
             description: en ? `${pkg.job}. ${pkg.kid}` : `${pkg.job}。${pkg.kid}`,
             ...(pkg.ctx ? { alternateName: pkg.ctx } : {}),
-            codeRepository: `${SOURCE_REPO}/tree/master/${group.path}`,
+            codeRepository: `${SOURCE_REPO}/tree/${HARNESS_RELEASE.tag}/${group.path}`,
             isPartOf: { "@id": `${SOURCE_REPO}#source` },
           },
         })),
